@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head %}
+{% endblock %}
+
+{% block title %}
+    {% trans "Login" %}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn" type="submit">{% trans "Login" %}</button>
+        </form>
+        <br>
+        <hr>
+        <p style="font-size: small;"><a href="/register">{% trans "Register" %}</a> {% trans "if you don't have account" %}</p>
+    </div>
+{% endblock %}
