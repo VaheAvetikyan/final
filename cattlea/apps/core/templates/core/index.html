@@ -1,0 +1,23 @@
+{% extends "core/base_core.html" %}
+
+{% load i18n %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block title %}
+    Cattlea
+{% endblock %}
+
+{% block body %}
+    {{ user }}
+    <p>{% trans "Hello" %}</p>
+    <h1>{{ menu }}</h1>
+
+    <a href="{% url 'authentication:register' %}">Register</a>
+
+    <a href="{% url 'authentication:login_view' %}">Login</a>
+
+    <a href="{% url 'authentication:logout' %}">Logout</a>
+{% endblock %}

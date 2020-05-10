@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'w1f&q-l!!2fb*kouf1o3vb^-%e*jppvplh&4s5!+%6wz^g8i@d'
+SECRET_KEY = '$&f&85jnzpj^%i^pk8($rs(&mpws-aj_*suahk-z&+y(7-n2kl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,16 +31,24 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Modeltranslation extension
     'modeltranslation',
+
+    # Prerequisite_APPS
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core.apps.CoreConfig',
-    'registration.apps.RegistrationConfig',
+
+    # Project_APPS
+    'cattlea.apps.authentication',
+    'cattlea.apps.core',
+    'cattlea.apps.carts',
+    'cattlea.apps.orders',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -104,16 +112,16 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Custom authentication function using email instead of username
-# https://docs.djangoproject.com/en/3.0/ref/settings/#std:setting-AUTHENTICATION_BACKENDS
+# Extending the existing django User model
+# https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#extending-the-existing-user-model
 
-AUTHENTICATION_BACKENDS = ['registration.backends.EmailAuthBackend']
+AUTH_USER_MODEL = 'authentication.User'
 
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'hy'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -123,8 +131,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+
 LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale'),
+    os.path.join(BASE_DIR, 'apps/locale'),
 )
 print(LOCALE_PATHS)
 
@@ -133,12 +142,12 @@ LANGUAGES = [
     ('en', 'English'),
 ]
 
-
 # Modeltranslation
 # https://django-modeltranslation.readthedocs.io/en/latest/installation.html#advanced-settings
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'hy'
 MODELTRANSLATION_LANGUAGES = ('en', 'hy')
+
 
 
 # Static files (CSS, JavaScript, Images)

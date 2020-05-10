@@ -14,11 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
-
+from django.urls import re_path, include
 
 urlpatterns = [
-    path('', include("core.urls")),
-    path('registration/', include("registration.urls")),
-    path('admin/', admin.site.urls),
+    re_path(r'^', include("cattlea.apps.core.urls")),
+    re_path(r'^auth/', include("cattlea.apps.authentication.urls")),
+    re_path(r'^carts/', include("cattlea.apps.carts.urls")),
+    re_path(r'^orders/', include("cattlea.apps.orders.urls")),
+    re_path(r'^admin/', admin.site.urls),
 ]

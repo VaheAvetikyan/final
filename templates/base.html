@@ -23,5 +23,12 @@
 
 <body>
     {% block body %}
+
+        {% if messages %}
+            {% for message in messages %}
+                {{message}}
+            {% endfor %}
+        {% endif %}
+
     {% endblock %}
 </body>
