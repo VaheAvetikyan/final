@@ -14,11 +14,11 @@ class ShoeInline(admin.TabularInline):
 
 class ShoeAdmin(TranslationAdmin):
     
-    list_display = ("model_code", "price", "color", "material_inner", "material_outer",
+    list_display = ("model_code", "price", "image", "color", "material_inner", "material_outer",
                     "outsole", "season", "description", "available")
 
     fieldsets = [
-        ("Model", {"fields": ["model_code", "price"]}),
+        ("Model", {"fields": ["model_code", "price", "image"]}),
         ("Specifications", {"fields": ["color", "material_inner", "material_outer", "outsole", "season", "description"]}),
         ("Availability", {"fields": ["available"]})
     ]
@@ -31,10 +31,10 @@ class ShoeAdmin(TranslationAdmin):
 
 class AccessorieAdmin(TranslationAdmin):
     
-    list_display = ("model_code", "price", "color", "material", "description", "available")
+    list_display = ("model_code", "price", "image", "color", "material", "description", "available")
 
     fieldsets = [
-        ("Model", {"fields": ["model_code", "price"]}),
+        ("Model", {"fields": ["model_code", "price", "image"]}),
         ("Specifications", {"fields": ["color", "material", "description"]}),
         ("Availability", {"fields": ["available"]})
     ]
@@ -43,10 +43,6 @@ class AccessorieAdmin(TranslationAdmin):
 class SizeAdmin(TranslationAdmin):
     list_display = ("size", "size_description")
 
-'''
-class ShoeSizeAdmin(admin.ModelAdmin):
-    list_display = ("shoe", "size")
-'''
 
 admin.site.register(Shoe, ShoeAdmin)
 admin.site.register(Accessorie, AccessorieAdmin)

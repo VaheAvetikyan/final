@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.core.validators import validate_email
 
 
 # Defining Custom user manager which extends Django BaseUserManager model
@@ -8,10 +9,14 @@ class CustomUserManager(BaseUserManager):
     def create_user(self, email=None, first_name=None, last_name=None, password=None):
         if not email:
             raise ValueError("To register you should provide an email")
-        if not first_name:
+        if validate_email(email):
+            raise ValueError("Invalid email")
+        if not first_name or first_name == " ":
             raise ValueError("To register you should provide your first name")
-        if not last_name:
+        if not last_name or last_name == " ":
             raise ValueError("To register you should provide your last name")
+        if not password or len(password) < 8:
+            raise ValueError("Your password must be at least 8 characters")
 
         user = self.model(
             first_name=first_name,
@@ -41,7 +46,7 @@ class CustomUserManager(BaseUserManager):
 class User(AbstractBaseUser):
 
     email = models.EmailField('email address', unique=True, blank=False)
-    first_name = models.CharField('first name', max_length=30, blank=False)
+    first_name = models.CharField('first name', max_length=30, null=False)
     last_name = models.CharField('last name', max_length=30, blank=False)
     date_joined = models.DateTimeField(verbose_name='date joined', auto_now_add=True)
     last_login = models.DateTimeField(verbose_name='last login', auto_now=True)

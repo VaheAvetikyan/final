@@ -1,12 +1,31 @@
 from django.db import models
 
 
+male = "M"
+female = "F"
+SEX_CHOICES = [
+    (male, "male"),
+    (female, "female")
+]
+
+athletic = "Athletic"
+boots = "Boots"
+classic = "Classic"
+STYLE_CHOICES = [
+    (athletic, "athletic"),
+    (boots, "boots"),
+    (classic, "classic")
+]
+
+
 # Create your models here.
 
 class Product(models.Model):
 
     model_code = models.CharField(max_length=32, unique=True)
     price = models.FloatField()
+
+    image = models.ImageField()
     color = models.CharField(max_length=32)
 
     description = models.CharField(max_length=200, blank=True)
@@ -27,18 +46,9 @@ class Size(models.Model):
 
 class Shoe(Product):
 
-    male = "M"
-    female = "F"
-    sexes = [(male, "male"), (female, "female")]
+    sex = models.CharField(max_length=2, choices=SEX_CHOICES, default=male)
 
-    sex = models.CharField(max_length=2, choices=sexes, default=male)
-
-    athletic = "Athletic"
-    boots = "Boots"
-    classic = "Classic"
-    styles = [(athletic, "athletic"), (boots, "boots"), (classic, "classic")]
-
-    style = models.CharField(max_length=64, choices=styles, default=classic)
+    style = models.CharField(max_length=64, choices=STYLE_CHOICES, default=classic)
 
     material_inner = models.CharField(max_length=64)
     material_outer = models.CharField(max_length=64)
@@ -60,12 +70,3 @@ class Accessorie(Product):
 
     def __str__(self):
         return f"{self.model_code} - {self.type}, {self.color}, {self.material} : {self.price}"
-
-
-'''
-class ShoeSize(models.Model):
-    #shoes = models.ManyToManyField(Shoe, related_name="sizes")
-    #sizes = models.ManyToManyField(Size, related_name="shoes")
-    shoe = models.ForeignKey(Shoe, on_delete=models.CASCADE, related_name="sizes")
-    size = models.ForeignKey(Size, on_delete=models.CASCADE, related_name="shoes")
-'''

@@ -1,0 +1,20 @@
+{% extends "carts/base_cart.html" %}
+
+{% load i18n %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block title %}
+    {% trans "Shopping Cart" %}
+{% endblock %}
+
+{% block body %}
+    {{ user }}
+    <a href="{% url 'core:index' %}">Home</a>
+
+    {% for item in items %}
+        <p>item</p>
+    {% endfor %}
+{% endblock %}

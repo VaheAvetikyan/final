@@ -1,29 +1,46 @@
 from django.db import models
+'''
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
+'''
 
 from cattlea.apps.authentication.models import User
-from cattlea.apps.core.models import Size
+from cattlea.apps.core.models import Product, Size
 
 
 # Create your models here.
+class CartItem(models.Model):
+
+    # Related to User table
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
+    item = models.ForeignKey(Product, on_delete=models.CASCADE)
+
+    # Related to Shoe Size table
+    size = models.ForeignKey(Size, on_delete=models.CASCADE, blank=False, default=None)
+    quantity = models.PositiveIntegerField()
+
+    date_added = models.DateTimeField(verbose_name='date added', auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user} - {self.item}, {self.size}, {self.quantity}, added on {self.date_added}"
+
+    def get_price(self):
+        price = item.price * self.quantity
+        return price
+
+
 class Cart(models.Model):
 
     # Related to User table
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
 
-    ''' 
-    Generic relations with different product tables
-    https://docs.djangoproject.com/en/3.0/ref/contrib/contenttypes/#generic-relations
-    '''
-    product_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-    product_id = models.PositiveIntegerField()
-    product = GenericForeignKey('product_type', 'product_id')
-
-    # Related to Shoe Size table
-    size = models.ForeignKey(Size, on_delete=models.CASCADE, blank=False, default=None)
-
-    date_added = models.DateTimeField(verbose_name='date added', auto_now_add=True)
+    items = models.ManyToManyField(CartItem)
 
     def __str__(self):
-        return f"{self.user} - {self.product.model_code} {self.product.price}, {self.size}, added on {self.date_added}"
+        return f"{self.user} - {self.items}, added on {self.date_added}"
+
+    def get_total(self):
+        total = 0
+        for item in self.items.all():
+            total += item.get_price()
+        return total
