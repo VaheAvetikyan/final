@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Cart
+from .models import Cart, CartItem
 
 
 class ItemsInLine(admin.TabularInline):
@@ -14,5 +14,11 @@ class CartAdmin(admin.ModelAdmin):
     inlines = [ItemsInLine, ]
 
 
+class CartItemAdmin(admin.ModelAdmin):
+
+    list_display = ('user', 'item', 'size', 'color', 'quantity', 'date_added')
+
+
 # Register your models here.
 admin.site.register(Cart, CartAdmin)
+admin.site.register(CartItem, CartItemAdmin)

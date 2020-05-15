@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.views.decorators.http import require_POST
 
 from .validation import add_or_create, show_cart
 
@@ -16,14 +17,16 @@ def cart(request):
                   context)
 
 
+@require_POST
 def cart_add(request):
 
     user = request.user
-    product_id = request.POST('id')
-    size = request.POST('size')
-    quantity = request.POST('quantity')
+    product = request.POST.get('product')
+    size = request.POST.get('size')
+    color = request.POST.get('color')
+    quantity = request.POST.get('quantity')
 
-    ad_or_create(user, product_id, size, quantity)
+    item = add_or_create(user, product, size, color, quantity)
 
-    context = {}
+    context = {'item': item.quantity}
     return JsonResponse(context)

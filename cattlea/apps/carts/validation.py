@@ -1,22 +1,35 @@
+from django.core.exceptions import ObjectDoesNotExist
+
 from .models import CartItem, Cart
+from cattlea.apps.authentication.models import User
+from cattlea.apps.core.models import Product, Size, Color
+
 from django.utils.translation import gettext as _
 
 
-def add_or_create(user, product_id, size, quantity):
+def add_or_create(user, product, size, color, quantity):
 
     if not user.is_authenticated:
         raise ValidationError(_("Unauthorized command"), code='invalid')
 
-    user_id = user.id
+    user = User.objects.get(pk=user.id)
+    product = Product.objects.get(pk=product)
+    size = Size.objects.get(pk=size)
+    color = Color.objects.get(pk=color)
 
-    item = CartItem.objects.get(user=user_id, item=product_id, size=size, quantity=quantity)
+    try:
+        item = CartItem.objects.get(user=user, item=product, size=size, color=color)
+    except ObjectDoesNotExist:
+        item = False
+
     if not item:
-        item = CartItem(user=user_id, item=product_id, size=size, quantity=quantity)
-
+        item = CartItem(user=user, item=product, size=size, color=color, quantity=quantity)
     else:
-        item.quantity += 1
+        item.quantity += quantity
 
     item.save()
+
+    return item
 
 
 def show_cart(user):

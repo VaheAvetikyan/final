@@ -5,16 +5,22 @@
     {% load static %}
     {% load static i18n %}
 
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta charset="UTF-8">
 
     <!--Set the icon-->
-    <link rel="icon" href="{% static 'core\media\icon_dark.png' %}" type="image/x-icon" />   
+    <link rel="icon" type="image/x-icon" href="{% static 'images/icon_dark.png' %}" />
+
+    <!--Custom style-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--Custom script-->
+    <script src="{% static 'js/scripts.js' %}"></script>
 
     {% block head %}{% endblock %}
 

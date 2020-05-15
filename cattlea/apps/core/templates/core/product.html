@@ -15,4 +15,22 @@
         <img src="{{ product.image.url }}">
         {{ product.image.url }}
     {% endif %}
+
+    <p id="product-id">{{ product.id }}</p>
+
+    <select id="sizes">
+    {% for size in product.sizes.all %}
+          <option value="{{ size.id }}">{{ size }}</option>
+    {% endfor %}
+    </select>
+
+    <select id="colors">
+    {% for color in product.colors.all %}
+          <option value="{{ color.id }}">{{ color }}</option>
+    {% endfor %}
+    </select>
+
+    <input type="number" id="quantity" name="quantity" min="1" max="5">
+
+    <button id="add-to-cart">Add to Cart</button>
 {% endblock %}

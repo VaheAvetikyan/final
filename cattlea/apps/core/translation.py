@@ -1,11 +1,11 @@
 from modeltranslation.translator import translator, TranslationOptions
 
-from .models import Product, Shoe, Accessorie, Size
+from .models import Product, Shoe, Accessorie, Size, Color
 
 
 # Model translations
 class ProductTranslationOptions(TranslationOptions):
-    fields = ('color', 'description',)
+    fields = ('description',)
 
 
 class ShoeTranslationOptions(TranslationOptions):
@@ -20,8 +20,13 @@ class SizeTranslationOptions(TranslationOptions):
     fields = ('size_description',)
 
 
+class ColorTranslationOptions(TranslationOptions):
+    fields = ('color',)
+
+
 # Register models for translation
 translator.register(Product, ProductTranslationOptions)
 translator.register(Shoe, ShoeTranslationOptions)
 translator.register(Accessorie, AccessorieTranslationOptions)
 translator.register(Size, SizeTranslationOptions)
+translator.register(Color, ColorTranslationOptions)
