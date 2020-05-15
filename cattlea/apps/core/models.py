@@ -25,7 +25,7 @@ class Product(models.Model):
     model_code = models.CharField(max_length=32, unique=True)
     price = models.FloatField()
 
-    image = models.ImageField()
+    image = models.ImageField(upload_to='media', blank=True)
     color = models.CharField(max_length=32)
 
     description = models.CharField(max_length=200, blank=True)

@@ -1,0 +1,17 @@
+{% extends "core/base_core.html" %}
+
+{% load i18n %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block title %}
+    Shoes
+{% endblock %}
+
+{% block body %}
+    {% for object in shoes %}
+        <p><a href="/shoes/{{ object.model_code }}">{{ object }}</a></p>
+    {% endfor %}
+{% endblock %}

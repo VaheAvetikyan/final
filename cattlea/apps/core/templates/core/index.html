@@ -12,12 +12,15 @@
 
 {% block body %}
     {{ user }}
-    <p>{% trans "Hello" %}</p>
-    <h1>{{ menu }}</h1>
+    <div>
+        <a href="{% url 'authentication:register' %}">Register</a>
 
-    <a href="{% url 'authentication:register' %}">Register</a>
+        <a href="{% url 'authentication:login_view' %}">Login</a>
 
-    <a href="{% url 'authentication:login_view' %}">Login</a>
+        <a href="{% url 'authentication:logout' %}">Logout</a>
+    </div>
 
-    <a href="{% url 'authentication:logout' %}">Logout</a>
+    <a>
+        <a href="{% url 'core:shoes' %}">Shoes</a>
+    </div>
 {% endblock %}

@@ -1,0 +1,18 @@
+{% extends "core/base_core.html" %}
+
+{% load i18n %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block title %}
+    {{ product.model_code }}
+{% endblock %}
+
+{% block body %}
+    {% if product.image %}
+        <img src="{{ product.image.url }}">
+        {{ product.image.url }}
+    {% endif %}
+{% endblock %}

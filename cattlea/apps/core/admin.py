@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import Product, Shoe, Accessorie, Size
 from modeltranslation.admin import TranslationAdmin
+from .models import Product, Shoe, Accessorie, Size
+
 
 # Translate
 from django.utils.translation import gettext as _

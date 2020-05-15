@@ -155,10 +155,13 @@ MODELTRANSLATION_LANGUAGES = ('en', 'hy')
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '/media/')
 
+'''
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-
+'''
 
 # Sending email
 # https://docs.djangoproject.com/en/3.0/topics/email/#email-backends
