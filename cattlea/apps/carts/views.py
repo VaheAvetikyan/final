@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 
-from .validation import add_or_create, show_cart
+from .validation import add, show_cart
 
 
 # Create your views here.
@@ -26,7 +26,7 @@ def cart_add(request):
     color = request.POST.get('color')
     quantity = request.POST.get('quantity')
 
-    item = add_or_create(user, product, size, color, quantity)
+    item = add(user, product, size, color, quantity)
 
     context = {'item': item.quantity}
     return JsonResponse(context)

@@ -19,7 +19,7 @@ class CartItem(models.Model):
     date_added = models.DateTimeField(verbose_name='date added', auto_now_add=True)
 
     def __str__(self):
-        return f"{self.user} - {self.item}, {self.size.size}, {self.quantity}"
+        return f"{self.item} - {self.size.size}, {self.quantity}"
 
     def get_price(self):
         price = item.price * self.quantity
@@ -34,7 +34,7 @@ class Cart(models.Model):
     items = models.ManyToManyField(CartItem)
 
     def __str__(self):
-        return f"{self.user} - {self.items}, added on {self.date_added}"
+        return f"{self.user} - {self.items}"
 
     def get_total(self):
         total = 0
