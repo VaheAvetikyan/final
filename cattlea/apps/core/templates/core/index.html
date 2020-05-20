@@ -10,17 +10,6 @@
     Cattlea
 {% endblock %}
 
-{% block body %}
-    {{ user }}
-    <div>
-        <a href="{% url 'authentication:register' %}">Register</a>
+{% block main %}
 
-        <a href="{% url 'authentication:login_view' %}">Login</a>
-
-        <a href="{% url 'authentication:logout' %}">Logout</a>
-    </div>
-
-    <a>
-        <a href="{% url 'core:shoes' %}">Shoes</a>
-    </div>
 {% endblock %}

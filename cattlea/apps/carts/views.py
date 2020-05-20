@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
@@ -21,6 +22,7 @@ def cart(request):
 def cart_add(request):
 
     user = request.user
+    
     product = request.POST.get('product')
     size = request.POST.get('size')
     color = request.POST.get('color')

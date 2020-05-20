@@ -31,7 +31,13 @@ addEventListener('DOMContentLoaded', () => {
         var product = document.querySelector('#product-id').innerHTML
 
         var sizes = document.querySelector('#sizes');
-        var size = sizes.options[sizes.selectedIndex].value;
+        
+        if (sizes != null) {
+            var size = sizes.options[sizes.selectedIndex].value;
+        }
+        else {
+            var size = null
+        }
 
         var colors = document.querySelector('#colors');
         var color = colors.options[colors.selectedIndex].value;

@@ -7,11 +7,11 @@
 {% endblock %}
 
 {% block title %}
-    Shoes
+    Assortment
 {% endblock %}
 
-{% block body %}
-    {% for object in shoes %}
-        <p><a href="/shoes/{{ object.model_code }}">{{ object }}</a></p>
+{% block main %}
+    {% for object in products %}
+        <p><a href="/product/{{ object.model_code }}">{{ object }}</a></p>
     {% endfor %}
 {% endblock %}

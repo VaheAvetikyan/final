@@ -32,6 +32,8 @@ class Product(models.Model):
     model_code = models.CharField(max_length=32, unique=True)
     price = models.FloatField()
 
+    sex = models.CharField(max_length=2, choices=SEX_CHOICES, default=male)
+
     image = models.ImageField(upload_to='images', blank=True)
     colors = models.ManyToManyField(Color, related_name="colors")
 
@@ -56,8 +58,6 @@ class Size(models.Model):
 
 class Shoe(Product):
 
-    sex = models.CharField(max_length=2, choices=SEX_CHOICES, default=male)
-
     style = models.CharField(max_length=64, choices=STYLE_CHOICES, default=classic)
 
     material_inner = models.CharField(max_length=64)
@@ -79,4 +79,4 @@ class Accessorie(Product):
     material = models.CharField(max_length=64)
 
     def __str__(self):
-        return f"{self.model_code} - {self.type}, {self.color}, {self.material} : {self.price}"
+        return f"{self.model_code} - {self.type}, {self.material} : {self.price}"

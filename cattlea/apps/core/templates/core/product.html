@@ -10,7 +10,7 @@
     {{ product.model_code }}
 {% endblock %}
 
-{% block body %}
+{% block main %}
     {% if product.image %}
         <img src="{{ product.image.url }}">
         {{ product.image.url }}
@@ -18,11 +18,14 @@
 
     <p id="product-id">{{ product.id }}</p>
 
-    <select id="sizes">
-    {% for size in product.sizes.all %}
-          <option value="{{ size.id }}">{{ size }}</option>
-    {% endfor %}
-    </select>
+    {% if product.shoe %}
+        <select id="sizes">
+        {% for size in product.shoe.sizes.all %}
+            <option value="{{ size.id }}">{{ size }}</option>
+        {% endfor %}
+        </select>
+    {% else %}
+    {% endif %}
 
     <select id="colors">
     {% for color in product.colors.all %}

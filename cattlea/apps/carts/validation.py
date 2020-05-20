@@ -31,7 +31,12 @@ def add(user, product, size, color, quantity):
 
     # Get models from passed in ids
     product = Product.objects.get(pk=product)
-    size = Size.objects.get(pk=size)
+
+    if size == 'null':
+        size = None
+    else:
+        size = Size.objects.get(pk=size)
+
     color = Color.objects.get(pk=color)
 
     """ 
