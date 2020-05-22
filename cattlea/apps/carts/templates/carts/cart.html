@@ -11,10 +11,17 @@
 {% endblock %}
 
 {% block body %}
-    {{ user }}
     <a href="{% url 'core:index' %}">Home</a>
 
     {% for item in items %}
-        <p>item</p>
+        <p>{{ item.user }}</p>
+
+        {% for object in item.items.all %}
+            {{ object.item.image.url }}
+            {{ object.size }}
+            {{ object.color }}
+            {{ object.quantity }}
+            {{ object.date_added }}
+        {% endfor %}
     {% endfor %}
 {% endblock %}

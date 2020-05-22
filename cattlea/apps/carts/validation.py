@@ -1,4 +1,4 @@
-from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import ObjectDoesNotExist, PermissionDenied
 
 from .models import CartItem, Cart
 from cattlea.apps.authentication.models import User
@@ -27,7 +27,7 @@ def add(user, product, size, color, quantity):
 
     # Check for user authentication
     if not user.is_authenticated:
-        raise ValidationError(_("Unauthorized command"), code='invalid')
+        raise PermissionDenied # ValidationError(_("Unauthorized command"), code='invalid')
 
     # Get models from passed in ids
     product = Product.objects.get(pk=product)
@@ -62,7 +62,7 @@ def show_cart(user):
 
     # Check for user authentication
     if not user.is_authenticated:
-        raise ValidationError(_("Unauthorized command"), code='invalid')
+        raise PermissionDenied # ValidationError(_("Unauthorized command"), code='invalid')
 
     items = Cart.objects.filter(user=user)
 

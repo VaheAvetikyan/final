@@ -17,7 +17,7 @@
     {% endif %}
 
     <p id="product-id">{{ product.id }}</p>
-
+    <h5 class="card-title">{{ product.description }}</h5>
     {% if product.shoe %}
         <select id="sizes">
         {% for size in product.shoe.sizes.all %}

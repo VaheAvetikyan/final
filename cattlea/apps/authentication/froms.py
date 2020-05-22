@@ -11,19 +11,24 @@ from .models import User
 # Custom Registration from extends django default
 class RegisterForm(UserCreationForm):
     first_name = forms.CharField(
-        max_length=30, required=True, label=_("First name"))
+        max_length=30, required=True, label=_("First name"),
+        widget=forms.TextInput(attrs={'placeholder': _("First name"), 'class': "form-control"}))
     last_name = forms.CharField(
-        max_length=30, required=True, label=_("Last name"))
+        max_length=30, required=True, label=_("Last name"),
+        widget=forms.TextInput(attrs={'placeholder': _("Last name"), 'class': "form-control"}))
 
     email = forms.EmailField(label=_("Email"),
                              max_length=254, required=True,
-                             help_text=_('Required. Provide a valid email address.'))
+                             help_text='Required. Provide a valid email address.',
+                             widget=forms.EmailInput(attrs={'placeholder': _('Email'), 'class': "form-control"}))
 
     password1 = forms.CharField(label=_("Password"),
-                                widget=forms.PasswordInput,
+                                widget=forms.PasswordInput(attrs={'placeholder': _(
+                                    'Password must be at least 8 characters.'), 'class': "form-control"}),
                                 help_text=_("Password must contain at least 8 characters"))
     password2 = forms.CharField(label=_("Password confirmation"),
-                                widget=forms.PasswordInput,
+                                widget=forms.PasswordInput(
+                                    attrs={'placeholder': _('Confirm Password'), 'class': "form-control"}),
                                 help_text=_("Enter the same password as above, for verification."))
 
     class Meta:
@@ -33,7 +38,12 @@ class RegisterForm(UserCreationForm):
 
 
 class LoginForm(forms.ModelForm):
-    password = forms.CharField(label='Password', widget=forms.PasswordInput)
+    email = forms.EmailField(label=_("Email"),
+                             max_length=254, required=True,
+                             help_text='Required. Provide a valid email address.',
+                             widget=forms.EmailInput(attrs={'placeholder': _('Email'), 'class': "form-control"}))
+    password = forms.CharField(label=_("Password"),
+                               widget=forms.PasswordInput(attrs={'placeholder': _('Password'), 'class': "form-control"}))
 
     class Meta:
         model = User

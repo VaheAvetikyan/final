@@ -10,9 +10,16 @@ from .models import Product, Shoe, Accessorie
 def index(request):
 
     user = request.user
+
+    last_added = Product.objects.all()[:3]
+
+    men_shoes = Shoe.objects.filter(sex='M').order_by('-pk')[:5]
+    women_shoes = Shoe.objects.filter(sex='F').order_by('-pk')[:5]
+
     context = {
-        "menu": _("Menu"),
-        "user": user
+        'last_added': last_added,
+        'men_shoes': men_shoes,
+        'women_shoes': women_shoes,
     }
 
     return render(request, "core/index.html", context)

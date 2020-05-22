@@ -1,23 +1,51 @@
-{% extends "base.html" %}
+{% extends "authentication/base_auth.html" %}
 
 {% load i18n %}
-
-{% block head %}
-{% endblock %}
 
 {% block title %}
     {% trans "Registration" %}
 {% endblock %}
 
-{% block body %}
-    {% trans "Registration" %}
-    <div class="container">
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="btn" type="submit">{% trans "Register" %}</button>
-        </form>
-        <br>
-        <hr>
+{% block main %}
+<h4 class="card-title mt-3 text-center">{% trans "Registration" %}</h4>
+
+<form method="POST">
+    <hr>
+    {% csrf_token %}
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+        </div>
+        {{ form.first_name }}
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+        </div>
+        {{ form.last_name }}
     </div>
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+        </div>
+        {{ form.email }}
+    </div>
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        </div>
+        {{ form.password1 }}
+    </div>
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        </div>
+        {{ form.password2 }}
+    </div>
+
+    <hr>
+    <button class="btn btn-primary btn-lg btn-block" type="submit">{% trans "Create Account" %}</button>
+    <br>
+    <p class="text-center">{% trans "Have an account?" %} <a
+            href="{% url 'authentication:login_view' %}">{% trans "Login" %}</a> </p>
+</form>
+<hr>
 {% endblock %}

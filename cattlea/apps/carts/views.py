@@ -12,7 +12,10 @@ def cart(request):
     user = request.user
     items = show_cart(user)
 
-    context = {'items': items}
+    context = {
+        'items': items,
+    }
+
     return render(request,
                   "carts/cart.html",
                   context)
@@ -22,7 +25,7 @@ def cart(request):
 def cart_add(request):
 
     user = request.user
-    
+
     product = request.POST.get('product')
     size = request.POST.get('size')
     color = request.POST.get('color')

@@ -2,14 +2,28 @@
 
 {% load i18n %}
 
-{% block head %}
-
-{% endblock %}
-
 {% block title %}
-    Cattlea
+Cattlea
 {% endblock %}
 
 {% block main %}
-
+<br>
+<div class="container">
+    <div class="card-deck">
+        {% for item in men_shoes %}
+        <a href="{% url 'core:product' item.model_code %}">
+            <div class="card bg-light mb-3" style="max-width: 18rem;">
+                <img class="card-img-top" src="{{ item.image.url }}" width="70" height="auto" alt="shoe">
+                <div class="card-body">
+                    {{ item.model_code }}
+                </div>
+                <div class="card-footer">
+                    {% load humanize %}
+                    </h5>{{ item.price|intcomma }} &#1423;</h5>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

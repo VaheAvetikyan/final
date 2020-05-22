@@ -60,6 +60,9 @@ def login_view(request):
                 login(request, user)
                 return redirect("core:index")
 
+        else:
+            messages.error(request, "Wrong Credentials")
+
     form = LoginForm()
     context = {"form": form}
     return render(request,
