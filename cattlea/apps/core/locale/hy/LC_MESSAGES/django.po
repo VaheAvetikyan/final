@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-09 00:25+0400\n"
+"POT-Creation-Date: 2020-06-01 18:57+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,14 +18,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\cattlea\apps\core\admin.py:51
+#: .\cattlea\apps\core\admin.py:62
 msgid "Admin Panel"
 msgstr "Կառավարման հարթակ"
 
-#: .\cattlea\apps\core\templates\core\index.html:15
-msgid "Hello"
-msgstr "Բարև"
+#: .\cattlea\apps\core\templates\core\base_core.html:23
+msgid "CATTLEA"
+msgstr ""
 
-#: .\cattlea\apps\core\views.py:11
-msgid "Menu"
-msgstr "Մենյու"
+#: .\cattlea\apps\core\templates\core\base_core.html:26
+msgid "Shoes"
+msgstr "Կոշիկներ"
+
+#: .\cattlea\apps\core\templates\core\base_core.html:29
+msgid "Accessories"
+msgstr "Աքսեսուարներ"
+
+#: .\cattlea\apps\core\templates\core\base_core.html:35
+msgid "Shopping Cart"
+msgstr "Զամբյուղ"
+
+#: .\cattlea\apps\core\templates\core\base_core.html:38
+msgid "Logout"
+msgstr "Դուրս գալ"
+
+#: .\cattlea\apps\core\templates\core\base_core.html:42
+msgid "Register"
+msgstr "Գրանցվել"
+
+#: .\cattlea\apps\core\templates\core\base_core.html:45
+msgid "Login"
+msgstr "Մուտք գործել"
