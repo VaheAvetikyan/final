@@ -62,7 +62,7 @@ def show_cart(user):
 
     # Check for user authentication
     if not user.is_authenticated:
-        raise PermissionDenied # ValidationError(_("Unauthorized command"), code='invalid')
+        raise PermissionDenied  # ValidationError(_("Unauthorized command"), code='invalid')
 
     items = Cart.objects.filter(user=user)
 

@@ -6,3 +6,4 @@ install:
 script:
     - python manage.py test cattlea.apps.authentication
     - python manage.py test cattlea.apps.core
+    - python manage.py test cattlea.apps.carts

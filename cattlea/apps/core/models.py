@@ -34,7 +34,7 @@ class Product(models.Model):
 
     sex = models.CharField(max_length=2, choices=SEX_CHOICES, default=male)
 
-    image = models.ImageField(upload_to='images', blank=True)
+    image = models.ImageField(blank=True)
     colors = models.ManyToManyField(Color, related_name="colors")
 
     description = models.CharField(max_length=200, blank=True)

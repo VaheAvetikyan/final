@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-09 00:25+0400\n"
+"POT-Creation-Date: 2020-06-01 18:57+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,22 +18,77 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\cattlea\apps\authentication\templates\authentication\login.html:9
-#: .\cattlea\apps\authentication\templates\authentication\login.html:13
-#: .\cattlea\apps\authentication\templates\authentication\login.html:18
+#: .\cattlea\apps\authentication\froms.py:14
+#: .\cattlea\apps\authentication\froms.py:15
+msgid "First name"
+msgstr "Անուն"
+
+#: .\cattlea\apps\authentication\froms.py:17
+#: .\cattlea\apps\authentication\froms.py:18
+msgid "Last name"
+msgstr "Ազգանուն"
+
+#: .\cattlea\apps\authentication\froms.py:20
+#: .\cattlea\apps\authentication\froms.py:23
+#: .\cattlea\apps\authentication\froms.py:41
+#: .\cattlea\apps\authentication\froms.py:44
+msgid "Email"
+msgstr "Էլ․փոստ"
+
+#: .\cattlea\apps\authentication\froms.py:25
+#: .\cattlea\apps\authentication\froms.py:45
+#: .\cattlea\apps\authentication\froms.py:46
+msgid "Password"
+msgstr "Գաղտնաբառ"
+
+#: .\cattlea\apps\authentication\froms.py:27
+msgid "Password must be at least 8 characters."
+msgstr "Գաղտնաբառը պետք է լինի առնվազն 8 նիշանոց"
+
+#: .\cattlea\apps\authentication\froms.py:28
+msgid "Password must contain at least 8 characters"
+msgstr "Գաղտնաբառը պետք է ունենա առնվազն 8 նիշ"
+
+#: .\cattlea\apps\authentication\froms.py:29
+msgid "Password confirmation"
+msgstr "Կրկին մուտքագրեք գաղտնաբառը"
+
+#: .\cattlea\apps\authentication\froms.py:31
+msgid "Confirm Password"
+msgstr "Կրկին մուտքագրեք գաղտնաբառը"
+
+#: .\cattlea\apps\authentication\froms.py:32
+msgid "Enter the same password as above, for verification."
+msgstr "Մուտքագրեք նույն գաղտնաբառը հաստատելու համար"
+
+#: .\cattlea\apps\authentication\templates\authentication\base_auth.html:16
+msgid "Welcome"
+msgstr "Բարի գալուստ"
+
+#: .\cattlea\apps\authentication\templates\authentication\login.html:6
+#: .\cattlea\apps\authentication\templates\authentication\login.html:10
+#: .\cattlea\apps\authentication\templates\authentication\login.html:27
+#: .\cattlea\apps\authentication\templates\authentication\register.html:48
 msgid "Login"
 msgstr "Մուտք"
 
-#: .\cattlea\apps\authentication\templates\authentication\login.html:22
-#: .\cattlea\apps\authentication\templates\authentication\register.html:18
+#: .\cattlea\apps\authentication\templates\authentication\login.html:29
 msgid "Register"
-msgstr "Գռանցվել"
+msgstr "Գրանցվել"
 
-#: .\cattlea\apps\authentication\templates\authentication\login.html:22
+#: .\cattlea\apps\authentication\templates\authentication\login.html:30
 msgid "if you don't have account"
 msgstr "Եթե չունեք գործող հաշիվ"
 
-#: .\cattlea\apps\authentication\templates\authentication\register.html:9
-#: .\cattlea\apps\authentication\templates\authentication\register.html:13
+#: .\cattlea\apps\authentication\templates\authentication\register.html:6
+#: .\cattlea\apps\authentication\templates\authentication\register.html:10
 msgid "Registration"
 msgstr "Գրանցում"
+
+#: .\cattlea\apps\authentication\templates\authentication\register.html:45
+msgid "Create Account"
+msgstr "Ստեղծել հաշիվ"
+
+#: .\cattlea\apps\authentication\templates\authentication\register.html:47
+msgid "Have an account?"
+msgstr "Արդեն գրանցված ե՞ք"

@@ -22,7 +22,7 @@ class CartItem(models.Model):
         return f"{self.item} - {self.quantity}"
 
     def get_price(self):
-        price = item.price * self.quantity
+        price = self.item.price * self.quantity
         return price
 
 
@@ -41,3 +41,6 @@ class Cart(models.Model):
         for item in self.items.all():
             total += item.get_price()
         return total
+
+    def get_items_count(self):
+        return self.items.all().count()
