@@ -1,5 +1,5 @@
 """
-WSGI config for cattlea project.
+WSGI config for cattlea_project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

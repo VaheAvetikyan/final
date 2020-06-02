@@ -1,5 +1,5 @@
 """
-ASGI config for cattlea project.
+ASGI config for cattlea_project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

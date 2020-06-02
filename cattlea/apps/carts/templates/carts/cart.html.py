@@ -1,0 +1,27 @@
+BBBBBBB BBBBBBBBBBBBBBBBBBBBBB
+
+BBBB BBBB
+
+BBBBB BBBB
+
+BBBBBBBB
+
+BBBBB BBBBB
+     gettext(u'Shopping Cart') 
+BBBBBBBB
+
+BBBBB BBBB
+    XX XXXXXXBBB BBBBBBBBBBBBXXXXXXXXXX
+
+    BBB BBBB BB BBBBB
+        XXXXXXX
+
+        BBB BBBBBB BB BBBBBBBBBBBBBB
+            
+            
+            
+            
+            
+        BBBBBB
+    BBBBBB
+BBBBBBBB
