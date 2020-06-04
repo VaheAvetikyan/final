@@ -5,5 +5,5 @@ from . import views
 app_name = "orders"
 
 urlpatterns = [
-    #re_path(r'^/$', views.orders, name="orders"),
+    re_path(r'^place/$', views.place, name="place"),
 ]

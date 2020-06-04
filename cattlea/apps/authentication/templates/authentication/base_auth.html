@@ -13,7 +13,7 @@
 <div class="container register">
     <div class="row">
         <div class="col-md-3 register-left">
-            <h3>{% trans "Welcome" %}</h3>
+            {% block welcome %}{% endblock %}
             <a class="navbar-brand" href="{% url 'core:index' %}"><img src="{% static 'images/icon_dark.png' %}" 
                 width="150" height="150" alt="Logo"><p>Go back to homepage</p></a>
         </div>

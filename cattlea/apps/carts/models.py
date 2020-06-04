@@ -7,15 +7,17 @@ from cattlea.apps.core.models import Product, Size, Color
 # Create your models here.
 class CartItem(models.Model):
 
-    # Related to User table
+    # Related to user and product
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     item = models.ForeignKey(Product, on_delete=models.CASCADE)
 
-    # Related to Size table
+    # Related to product properties
     size = models.ForeignKey(Size, on_delete=models.CASCADE, null=True, blank=True)
     color = models.ForeignKey(Color, on_delete=models.CASCADE, null=False, blank=False)
-    quantity = models.PositiveIntegerField()
 
+    quantity = models.PositiveIntegerField()
+    
+    # date of cart item added to cart
     date_added = models.DateTimeField(verbose_name='date added', auto_now_add=True)
 
     def __str__(self):

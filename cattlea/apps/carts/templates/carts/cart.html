@@ -12,16 +12,43 @@
 
 {% block body %}
     <a href="{% url 'core:index' %}">Home</a>
+    <div class="container">
+        {% for item in items %}
+            <p>{{ item.user }}</p>
 
-    {% for item in items %}
-        <p>{{ item.user }}</p>
-
-        {% for object in item.items.all %}
-            {{ object.item.image.url }}
-            {{ object.size }}
-            {{ object.color }}
-            {{ object.quantity }}
-            {{ object.date_added }}
+            {% for object in item.items.all %}
+                <div class="row">
+                    <div class="col-sm">
+                        <a href="{% url 'core:product' object.item.model_code %}">
+                            <img src="{{ object.item.image.url }}" class="img-thumbnail" width="120" height="auto">
+                        </a>
+                    </div>
+                    <div class="col-sm">
+                        <p>Size - <span>{{ object.size.size }}</span></p>
+                        <p>Color - <span class="badge" style="background-color: {{ object.color }};">{{ object.color }}</span></p>
+                    </div>
+                    <div class="col-sm">
+                        <p>Quantity - {{ object.quantity }}</p>
+                        <p>Price - {% load humanize %}{{ object.item.price|intcomma }} &#1423;</p>
+                    </div>
+                    <div class="col-sm">
+                        Total:<p>{% load humanize %}{{ object.get_price|intcomma }} &#1423;</p>
+                    </div>
+                    <div class="col-sm">
+                        Added: <p>{{ object.date_added }}</p>
+                    </div>
+                </div>
+                <hr>
+            {% endfor %}
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-md-auto">
+                    Total - {% load humanize %}{{ item.get_total|intcomma }}
+                </div>
+                <div class="col col-lg-2">
+                    <a href="{% url 'orders:place' %}" class="btn btn-success" id="order-submit">Place Order</a>
+                </div>
+            </div>
         {% endfor %}
-    {% endfor %}
+    </div>
 {% endblock %}

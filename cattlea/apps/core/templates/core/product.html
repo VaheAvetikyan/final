@@ -11,29 +11,30 @@
 {% endblock %}
 
 {% block main %}
-    {% if product.image %}
-        <img src="{{ product.image.url }}">
-        {{ product.image.url }}
-    {% endif %}
+    <div class="container">
+        {% if product.image %}
+            <img src="{{ product.image.url }}" class="img-fluid" >
+        {% endif %}
 
-    <p id="product-id">{{ product.id }}</p>
-    <h5 class="card-title">{{ product.description }}</h5>
-    {% if product.shoe %}
-        <select id="sizes">
-        {% for size in product.shoe.sizes.all %}
-            <option value="{{ size.id }}">{{ size }}</option>
+        <input type="hidden" id="product-id" value="{{ product.id }}"/>
+        <h5 class="card-title">{{ product.description }}</h5>
+        {% if product.shoe %}
+            <select id="sizes">
+            {% for size in product.shoe.sizes.all %}
+                <option value="{{ size.id }}">{{ size }}</option>
+            {% endfor %}
+            </select>
+        {% else %}
+        {% endif %}
+
+        <select id="colors">
+        {% for color in product.colors.all %}
+            <option value="{{ color.id }}">{{ color }}</option>
         {% endfor %}
         </select>
-    {% else %}
-    {% endif %}
 
-    <select id="colors">
-    {% for color in product.colors.all %}
-          <option value="{{ color.id }}">{{ color }}</option>
-    {% endfor %}
-    </select>
+        <input type="number" id="quantity" name="quantity" min="1" max="5">
 
-    <input type="number" id="quantity" name="quantity" min="1" max="5">
-
-    <button id="add-to-cart">Add to Cart</button>
+        <button class="btn btn-success" id="add-to-cart">Add to Cart</button>
+    </div>
 {% endblock %}

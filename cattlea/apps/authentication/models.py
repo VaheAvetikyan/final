@@ -55,6 +55,10 @@ class User(AbstractBaseUser):
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
 
+    address = models.ForeignKey(
+        'Address', related_name='address', on_delete=models.SET_NULL, blank=True, null=True
+        )
+
     """Set username_field to email, so that users login with their emails"""
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name']
@@ -72,3 +76,27 @@ class User(AbstractBaseUser):
     # Does this user have permission to view this app? (ALWAYS YES FOR SIMPLICITY)
     def has_module_perms(self, app_label):
         return True
+
+
+
+class Address(models.Model):
+    #user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    city = models.CharField(max_length=64)
+    
+    street_address = models.CharField(max_length=64)
+    apartment_address = models.CharField(max_length=64, null=True)
+    
+    zip = models.CharField(max_length=16)
+
+    '''
+    address_type = models.CharField(max_length=1, choices=ADDRESS_CHOICES)
+    '''
+
+    default = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.street_address
+
+    class Meta:
+        verbose_name_plural = 'Addresses'

@@ -1,7 +1,7 @@
 from django.db import models
 
-from cattlea.apps.authentication.models import User
-from cattlea.apps.core.models import Product, Size
+from cattlea.apps.authentication.models import User, Address
+from cattlea.apps.core.models import Product, Size, Color
 
 
 '''
@@ -13,12 +13,21 @@ ADDRESS_CHOICES = (
 
 
 class OrderItem(models.Model):
+
+    # Related to user and product
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     item = models.ForeignKey(Product, on_delete=models.CASCADE)
-    size = models.ForeignKey(Size, on_delete=models.CASCADE, blank=False, default=None)
+
+    # Related to product properties
+    size = models.ForeignKey(Size, on_delete=models.CASCADE, null=True, default=None)
+    color = models.ForeignKey(Color, on_delete=models.CASCADE, null=False, blank=False)
+
     quantity = models.PositiveIntegerField()
 
     price = models.FloatField()
+
+    def __str__(self):
+        return f"{self.item} - {self.quantity}"
 
     def get_price(self):
         price = self.item.price * self.quantity
@@ -26,7 +35,7 @@ class OrderItem(models.Model):
 
     # Automatically set the price field to keep in the order even when products price changes in the future
     def save(self, *args, **kwargs):
-        self. price = self.get_price()
+        self.price = self.get_price()
         super().save(*args, **kwargs)
 
 
@@ -37,7 +46,8 @@ class Order(models.Model):
     ordered_date = models.DateTimeField(auto_now_add=True)
     ordered = models.BooleanField(default=False)
     shipping_address = models.ForeignKey(
-        'Address', related_name='shipping_address', on_delete=models.SET_NULL, blank=True, null=True)
+        Address, related_name='shipping_address', on_delete=models.SET_NULL, blank=True, null=True
+        )
 
     '''
     billing_address = models.ForeignKey(
@@ -59,25 +69,3 @@ class Order(models.Model):
         for item in self.items.all():
             total += item.get_price()
         return total
-
-
-class Address(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    city = models.CharField(max_length=100)
-    street_address = models.CharField(max_length=100)
-    apartment_address = models.CharField(max_length=100)
-
-    zip = models.CharField(max_length=32)
-
-    '''
-    address_type = models.CharField(max_length=1, choices=ADDRESS_CHOICES)
-    '''
-
-    default = models.BooleanField(default=False)
-
-    def __str__(self):
-        return self.user.email
-
-    class Meta:
-        verbose_name_plural = 'Addresses'

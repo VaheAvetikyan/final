@@ -12,7 +12,7 @@ Assortment
     <div class="card-deck">
         {% for item in products %}
         <a href="{% url 'core:product' item.model_code %}">
-            <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+            <div class="card bg-light mb-3" style="max-width: 18rem;">
                 <img class="card-img-top" src="{{ item.image.url }}" width="70" height="auto" alt="shoe">
                 <div class="card-body">
                     {{ item.model_code }}

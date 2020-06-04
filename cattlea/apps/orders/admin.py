@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Order, Address
+from .models import OrderItem, Order
 
 
 class ItemsInLine(admin.TabularInline):
@@ -13,11 +13,11 @@ class OrderAdmin(admin.ModelAdmin):
     inlines = [ItemsInLine, ]
 
 
-class AddressAdmin(admin.ModelAdmin):
+class OrderItemAdmin(admin.ModelAdmin):
 
-    list_display = ("user", "city", "street_address", "apartment_address", "zip")
+    list_display = ('user', 'item', 'size', 'color', 'quantity', 'price')
 
 
 # Register your models here.
 admin.site.register(Order, OrderAdmin)
-admin.site.register(Address, AddressAdmin)
+admin.site.register(OrderItem, OrderItemAdmin)

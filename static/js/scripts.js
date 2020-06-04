@@ -28,7 +28,7 @@ addEventListener('DOMContentLoaded', () => {
         // Initialize new request
         const request = new XMLHttpRequest();
 
-        var product = document.querySelector('#product-id').innerHTML
+        var product = document.querySelector('#product-id').value
 
         var sizes = document.querySelector('#sizes');
         

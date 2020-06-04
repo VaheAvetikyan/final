@@ -2,7 +2,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 
-from .froms import RegisterForm, LoginForm
+from .froms import RegisterForm, LoginForm, AddressForm
 
 
 # Create your views here.
@@ -67,4 +67,24 @@ def login_view(request):
     context = {"form": form}
     return render(request,
                   "authentication/login.html",
+                  context)
+
+
+def address(request):
+
+    user = request.user
+    
+    if request.POST:
+        form = AddressForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+        user.address = form.pk
+
+        return redirect('carts:cart')
+
+    form = AddressForm()
+    context = {"form": form}
+    return render(request,
+                  "authentication/address.html",
                   context)

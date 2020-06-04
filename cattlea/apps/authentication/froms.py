@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate
 # Translate
 from django.utils.translation import gettext as _
 
-from .models import User
+from .models import User, Address
 
 
 # Custom Registration from extends django default
@@ -55,3 +55,31 @@ class LoginForm(forms.ModelForm):
             password = self.cleaned_data['password']
             if not authenticate(email=email, password=password):
                 raise forms.ValidationError("Invalid login")
+
+
+class AddressForm(forms.ModelForm):
+
+    city = forms.CharField(
+        label=_("City"), max_length=64, 
+        widget=forms.TextInput(attrs={'placeholder': _("City"), 'class': "form-control"})
+        )
+
+    street_address = forms.CharField(
+        label=_("Street"), max_length=64,
+        widget=forms.TextInput(attrs={'placeholder': _("Street"), 'class': "form-control"})
+        )
+
+    apartment_address = forms.CharField(
+        label=_("Apartment"), max_length=64,
+        widget=forms.TextInput(attrs={'placeholder': _("Apartment"), 'class': "form-control"})
+        )
+
+    zip = forms.CharField(
+        label=_("Zip Code"), max_length=16,
+        widget=forms.TextInput(attrs={'placeholder': _("Zip Code"), 'class': "form-control"})
+        )
+
+
+    class Meta:
+        model = Address
+        fields = '__all__'

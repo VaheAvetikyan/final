@@ -16,10 +16,13 @@ def index(request):
     men_shoes = Shoe.objects.filter(sex='M').order_by('-pk')[:5]
     women_shoes = Shoe.objects.filter(sex='F').order_by('-pk')[:5]
 
+    accessories = Accessorie.objects.all().order_by('-pk')[:5]
+
     context = {
         'last_added': last_added,
         'men_shoes': men_shoes,
         'women_shoes': women_shoes,
+        'accessories': accessories,
     }
 
     return render(request, "core/index.html", context)

@@ -1,0 +1,43 @@
+{% extends "authentication/base_auth.html" %}
+
+{% load i18n %}
+
+{% block title %}
+    {% trans "Address" %}
+{% endblock %}
+
+{% block main %}
+<h4 class="card-title mt-3 text-center">{% trans "Address" %}</h4>
+<form method="POST">
+    <hr>
+    {% csrf_token %}
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
+        </div>
+        {{ form.city }}
+    </div>
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
+        </div>
+        {{ form.street_address }}
+    </div>
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+        </div>
+        {{ form.apartment_address }}
+    </div>
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-address-card"></i> </span>
+        </div>
+        {{ form.zip }}
+    </div>
+    <hr>
+    <button class="btn btn-primary btn-lg btn-block" type="submit">{% trans "Save" %}</button>
+    <br>
+</form>
+<hr>
+{% endblock %}
