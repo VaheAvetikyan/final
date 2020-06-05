@@ -33,5 +33,8 @@ def cart_add(request):
 
     item = add(user, product, size, color, quantity)
 
-    context = {'item': item.quantity}
+    context = {
+        'item': item.quantity
+    }
+
     return JsonResponse(context)

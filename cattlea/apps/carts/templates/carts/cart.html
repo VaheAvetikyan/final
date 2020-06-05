@@ -1,21 +1,14 @@
-{% extends "carts/base_cart.html" %}
+{% extends "core/base_core.html" %}
 
 {% load i18n %}
-
-{% block head %}
-
-{% endblock %}
 
 {% block title %}
     {% trans "Shopping Cart" %}
 {% endblock %}
 
-{% block body %}
-    <a href="{% url 'core:index' %}">Home</a>
+{% block main %}
     <div class="container">
         {% for item in items %}
-            <p>{{ item.user }}</p>
-
             {% for object in item.items.all %}
                 <div class="row">
                     <div class="col-sm">
@@ -26,6 +19,7 @@
                     <div class="col-sm">
                         <p>Size - <span>{{ object.size.size }}</span></p>
                         <p>Color - <span class="badge" style="background-color: {{ object.color }};">{{ object.color }}</span></p>
+                        <p>Sex - {{ object.item.get_sex_display }}</p>
                     </div>
                     <div class="col-sm">
                         <p>Quantity - {{ object.quantity }}</p>
@@ -35,7 +29,7 @@
                         Total:<p>{% load humanize %}{{ object.get_price|intcomma }} &#1423;</p>
                     </div>
                     <div class="col-sm">
-                        Added: <p>{{ object.date_added }}</p>
+                        Added: <p>{{ object.date_added|date:'j F, Y' }}</p>
                     </div>
                 </div>
                 <hr>

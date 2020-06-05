@@ -79,6 +79,12 @@ class AddressForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'placeholder': _("Zip Code"), 'class': "form-control"})
         )
 
+    default = forms.BooleanField(
+        required=True, 
+        initial=True, 
+        label=_("Deafault Address")
+        )
+
 
     class Meta:
         model = Address

@@ -46,10 +46,10 @@ def assort(request, param):
 
 def product(request, model_code):
 
-    prod = Product.objects.get(model_code=model_code)
+    product = Product.objects.get(model_code=model_code)
 
     context = {
-        "product": prod,
+        "product": product,
     }
 
     return render(request, "core/product.html", context)

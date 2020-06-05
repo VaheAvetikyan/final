@@ -17,7 +17,16 @@
         {% endif %}
 
         <input type="hidden" id="product-id" value="{{ product.id }}"/>
+
         <h5 class="card-title">{{ product.description }}</h5>
+        <p>{{ product.style }}</p>
+        <p>{{ product.material_inner }}</p>
+        <p>{{ product.material_outer }}</p>
+        <p>{{ product.outsole }}</p>
+        <p>{{ product.season }}</p>
+        <p>{{ product.type }}</p>
+        <p>{{ product.material }}</p>
+
         {% if product.shoe %}
             <select id="sizes">
             {% for size in product.shoe.sizes.all %}

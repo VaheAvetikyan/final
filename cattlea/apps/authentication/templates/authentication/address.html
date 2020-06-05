@@ -1,4 +1,4 @@
-{% extends "authentication/base_auth.html" %}
+{% extends "core/base_core.html" %}
 
 {% load i18n %}
 
@@ -7,37 +7,45 @@
 {% endblock %}
 
 {% block main %}
-<h4 class="card-title mt-3 text-center">{% trans "Address" %}</h4>
-<form method="POST">
+<div class="container">
+    <h4 class="card-title mt-3 text-center">{% trans "Address" %}</h4>
+    <form method="POST">
+        <hr>
+        {% csrf_token %}
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fas fa-globe"></i> </span>
+            </div>
+            {{ form.city }}
+        </div>
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
+            </div>
+            {{ form.street_address }}
+        </div>
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+            </div>
+            {{ form.apartment_address }}
+        </div>
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="far fa-address-card"></i> </span>
+            </div>
+            {{ form.zip }}
+        </div>
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                {% trans "Default Shipping Address" %}
+            </div> &nbsp; &nbsp;
+            {{ form.default }}
+        </div>
+        <hr>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">{% trans "Save" %}</button>
+        <br>
+    </form>
     <hr>
-    {% csrf_token %}
-    <div class="form-group input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
-        </div>
-        {{ form.city }}
-    </div>
-    <div class="form-group input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
-        </div>
-        {{ form.street_address }}
-    </div>
-    <div class="form-group input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-building"></i> </span>
-        </div>
-        {{ form.apartment_address }}
-    </div>
-    <div class="form-group input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-address-card"></i> </span>
-        </div>
-        {{ form.zip }}
-    </div>
-    <hr>
-    <button class="btn btn-primary btn-lg btn-block" type="submit">{% trans "Save" %}</button>
-    <br>
-</form>
-<hr>
+</div>
 {% endblock %}

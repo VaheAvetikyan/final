@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib import messages
 
 from .froms import RegisterForm, LoginForm, AddressForm
+from .models import User
 
 
 # Create your views here.
@@ -36,7 +37,10 @@ def register(request):
                           context={"form": form})
 
     form = RegisterForm
-    context = {"form": form}
+    context = {
+        "form": form
+    }
+
     return render(request,
                   "authentication/register.html",
                   context)
@@ -64,27 +68,52 @@ def login_view(request):
             messages.error(request, "Wrong Credentials")
 
     form = LoginForm()
-    context = {"form": form}
+    context = {
+        "form": form
+    }
+
     return render(request,
                   "authentication/login.html",
+                  context)
+
+
+def account(request):
+
+    user = request.user
+    if not user.is_authenticated:
+        return redirect("authentication:login_view")
+
+    context = {
+        "user": user
+    }
+
+    return render(request,
+                  "authentication/account.html", 
                   context)
 
 
 def address(request):
 
     user = request.user
+    if not user.is_authenticated:
+        return redirect("authentication:login_view")
     
     if request.POST:
         form = AddressForm(request.POST)
         if form.is_valid():
-            form.save()
+            address = form.save()
 
-        user.address = form.pk
+        user = User.objects.get(email=user.email)
+        user.address = address
+        user.save()
 
         return redirect('carts:cart')
 
     form = AddressForm()
-    context = {"form": form}
+    context = {
+        "form": form
+    }
+
     return render(request,
                   "authentication/address.html",
                   context)

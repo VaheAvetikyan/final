@@ -1,0 +1,72 @@
+{% extends "core/base_core.html" %}
+
+{% load i18n %}
+
+{% block title %}
+{% trans "Account" %}
+{% endblock %}
+
+{% block main %}
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <a class="btn" href="{% url 'orders:history' %}">
+                <div class="card">
+                    <div class="card-body">
+                        <h3><i class="fas fa-cube"></i> Your Orders History</h3>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-6">
+            <a class="btn" href="{% url 'carts:cart' %}">
+                <div class="card">
+                    <div class="card-body">
+                        <h3><i class="fa fa-shopping-cart"></i> Your Shopping Cart</h3>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-4">
+            <ul class="list-group">
+                <li class="list-group-item"><i class="fas fa-user-circle"></i> First Name</li>
+                <li class="list-group-item"><i class="fas fa-user-circle"></i> Last Name</li>
+                <li class="list-group-item"><i class="fas fa-at"></i> Email address</li>
+                <li class="list-group-item"><i class="fas fa-calendar-alt"></i> Date Joined</li>
+                {% if user.address %}
+                <li class="list-group-item"><i class="fas fa-address-card"></i> Address</li>
+                <li class="list-group-item"><i class="far fa-address-card"></i> Zip Code</li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="col-sm-8">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{ user.first_name }}</li>
+                <li class="list-group-item">{{ user.last_name }}</li>
+                <li class="list-group-item">{{ user.email }}</li>
+                <li class="list-group-item">{{ user.date_joined|date:'j F, Y' }}</li>
+                {% if user.address %}
+                <li class="list-group-item">{{ user.address.city }}, {{ user.address.street_address }},
+                    {{ user.address.apartment_address }}</li>
+                <li class="list-group-item">{{ user.address.zip }}</li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <br>
+    <hr>
+    {% if user.address %}
+    <a class="btn btn-lg" href="{% url 'authentication:address' %}">
+        <i class="fa fa-edit" aria-hidden="true"></i> Change Address</a>
+    {% else %}
+    <a class="btn" href="{% url 'authentication:address' %}">Add Address</a>
+    {% endif %}
+    <hr>
+    <a class="btn btn-lg" href="{% url 'authentication:change-password' %}">
+        <i class="fa fa-edit" aria-hidden="true"></i> Change Password</a>
+</div>
+{% endblock %}

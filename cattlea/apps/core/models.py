@@ -1,16 +1,18 @@
 from django.db import models
 
+# Translate
+from django.utils.translation import gettext as _
 
 male = "M"
 female = "F"
 SEX_CHOICES = [
-    (male, "male"),
-    (female, "female")
+    (male, _("Male")),
+    (female, _("Female"))
 ]
 
-athletic = "Athletic"
-boots = "Boots"
-classic = "Classic"
+athletic = _("Athletic")
+boots = _("Boots")
+classic = _("Classic")
 STYLE_CHOICES = [
     (athletic, "athletic"),
     (boots, "boots"),

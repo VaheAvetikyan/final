@@ -2,9 +2,7 @@
 
 {% load i18n %}
 
-{% block header %}
 {% load static %}
-{% endblock %}
 
 {% block title %}{% endblock %}
 
@@ -32,21 +30,34 @@
         <ul class="navbar-nav my-2 my-lg-0">
             {% if user.is_authenticated %}
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'carts:cart' %}">{% trans "Shopping Cart" %}</a>
+                <a class="nav-link" href="{% url 'carts:cart' %}"><i class="fa fa-shopping-cart"></i>
+                    {% trans "Shopping Cart" %}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'authentication:logout' %}">{% trans "Logout" %}</a>
+                <a class="nav-link" href="{% url 'orders:history' %}"><i class="fas fa-cube"></i>
+                    {% trans "Orders" %}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'authentication:account' %}"><i class="fa fa-user"></i>
+                    {{ user.first_name }} {{ user.last_name }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'authentication:logout' %}"><i class="fa fa-sign-out-alt"></i>
+                    {% trans "Logout" %}</a>
             </li>
             {% else %}
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'authentication:register' %}">{% trans "Register" %}</a>
+                <a class="nav-link" href="{% url 'authentication:register' %}"><i class="fa fa-user-plus"></i>
+                    {% trans "Register" %}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'authentication:login_view' %}">{% trans "Login" %}</a>
+                <a class="nav-link" href="{% url 'authentication:login_view' %}"><i class="fa fa-sign-in-alt"></i>
+                    {% trans "Login" %}</a>
             </li>
             {% endif %}
         </ul>
     </div>
 </nav>
+<br>
 {% block main %}{% endblock %}
 {% endblock %}
