@@ -20,11 +20,11 @@ class ColorInline(admin.TabularInline):
 class ShoeAdmin(TranslationAdmin):
     
     list_display = ("model_code", "name", "price", "sex", "image", "material_inner", "material_outer",
-                    "outsole", "season", "description", "available")
+                    "outsole", "style", "season", "description", "available")
 
     fieldsets = [
         ("Model", {"fields": ["model_code", "name", "price", "sex", "image"]}),
-        ("Specifications", {"fields": ["material_inner", "material_outer", "outsole", "season", "description"]}),
+        ("Specifications", {"fields": ["style", "material_inner", "material_outer", "outsole", "season", "description"]}),
         ("Availability", {"fields": ["available"]})
     ]
 

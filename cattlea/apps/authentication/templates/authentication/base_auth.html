@@ -15,7 +15,7 @@
         <div class="col-md-3 register-left">
             {% block welcome %}{% endblock %}
             <a class="navbar-brand" href="{% url 'core:index' %}"><img src="{% static 'images/icon_dark.png' %}" 
-                width="150" height="150" alt="Logo"><p>Go back to homepage</p></a>
+                width="150" height="150" alt="Logo"><p>{% trans "Go back to homepage" %}</p></a>
         </div>
         <div class="col-md-9 register-right">
             <article class="card-body mx-auto">
