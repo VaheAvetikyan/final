@@ -31,7 +31,7 @@ addEventListener('DOMContentLoaded', () => {
         var product = document.querySelector('#product-id').value
 
         var sizes = document.querySelector('#sizes');
-        
+
         if (sizes != null) {
             var size = sizes.options[sizes.selectedIndex].value;
         }
@@ -68,4 +68,50 @@ addEventListener('DOMContentLoaded', () => {
         request.send(data);
         return false;
     }
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.progress-button').forEach(function (button) {
+        button.onclick = () => {
+            // Initialize new request
+            const request = new XMLHttpRequest();
+
+            var order_number = button.dataset.id
+
+            request.open('POST', 'rec/');
+
+            // Callback function for when request completes
+            request.onload = () => {
+
+                // Extract JSON data from request
+                const response = JSON.parse(request.responseText);
+                var id = response.order_id
+
+                var id_concat = `#progress-${id}`
+                console.log(id_concat)
+                // Get element
+                var elem = document.querySelector(id_concat);
+
+                // Set inner HTML text
+                elem.innerHTML = "Delivered";
+
+                // Set the width to 100%
+                elem.style.width = "100%";
+
+                // Hide button
+                button.style.visibility = 'hidden';
+            }
+
+            // Add data to send with request
+            const data = new FormData();
+            data.append('id', order_number);
+
+            // Set request header
+            request.setRequestHeader("X-CSRFToken", csrftoken);
+
+            // Send request
+            request.send(data);
+            return false;
+        }
+    })
 })

@@ -13,36 +13,59 @@
         <p>Order Number - {{ order.id }}</p>
         {% for item in order.items.all %}
         <div class="row">
-            <div class="col col-sm-2">
+            <div class="col col-sm-4">
                 <a href="{% url 'core:product' item.item.model_code %}">
                     <img src="{{ item.item.image.url }}" class="img-thumbnail" width="120" height="auto">
                 </a>
             </div>
-            <div class="col col-sm-2">
-                <p>Size - {{ item.size.size }}</p>
-                <p>Color - {{ item.color }}</p>
-                <p>Sex - {{ item.item.get_sex_display }}</p>
-            </div>
             <div class="col col-sm-6">
-                <p>{{ item.item.description }}</p>
+                <p>Size: {{ item.size.size }}</p>
+                <p>Color: {{ item.color }}</p>
+                <p>Sex: {{ item.item.get_sex_display }}</p>
             </div>
             <div class="col col-sm-2">
                 <p>Qty: {{ item.quantity }}</p>
-                <p>Total: {% load humanize %}{{ item.get_price|intcomma }}</p>
+                <p>Total: {% load humanize %}{{ item.get_price|intcomma }} &#1423;</p>
             </div>
         </div>
         <hr>
         {% endfor %}
         <div class="row">
-            <div class="col col-sm-6">
+            <div class="col col-sm-4">
                 <p><small>Shipping Address: {{ order.shipping_address }}</small></p>
             </div>
-            <div class="col col-sm-4">
+            <div class="col col-sm-6">
                 <p><small>Ordered on: {{ order.ordered_date|date:'j F, Y' }}</small></p>
             </div>
             <div class="col col-sm-2">
-                <p>Total: {% load humanize %} {{ order.get_total|intcomma}}</p>
+                <p>Total: {% load humanize %} {{ order.get_total|intcomma}} &#1423;</p>
             </div>
+        </div>
+        <div class="row">
+            <div class="col col-sm-9">
+                {% if order.received %}
+                <div class="progress">
+                    <div id="progress-{{ order.id }}" class="progress-bar bg-success" role="progressbar"
+                        style="width: 100%;">Delivered</div>
+                </div>
+                {% elif order.being_delivered %}
+                <div class="progress">
+                    <div id="progress-{{ order.id }}" class="progress-bar bg-success" role="progressbar"
+                        style="width: 80%;">Out for delivery</div>
+                </div>
+                {% else %}
+                <div class="progress">
+                    <div id="progress-{{ order.id }}" class="progress-bar bg-success" role="progressbar"
+                        style="width: 40%;">Ordered</div>
+                </div>
+                {% endif %}
+            </div>
+            {% if not order.received %}
+            <div id="prog-btn" class="col col-md-auto">
+                <button class="btn btn-success progress-button" data-id="{{ order.id }}" type="submit">
+                    Mark as Received</button>
+            </div>
+            {% endif %}
         </div>
     </div>
     {% endfor %}

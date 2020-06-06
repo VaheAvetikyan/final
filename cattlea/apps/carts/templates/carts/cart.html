@@ -37,7 +37,7 @@
             <div class="row">
                 <div class="col"></div>
                 <div class="col-md-auto">
-                    Total - {% load humanize %}{{ item.get_total|intcomma }}
+                    Total - {% load humanize %}{{ item.get_total|intcomma }} &#1423;
                 </div>
                 <div class="col col-lg-2">
                     <a href="{% url 'orders:place' %}" class="btn btn-success" id="order-submit">Place Order</a>

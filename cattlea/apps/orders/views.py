@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 
 from .models import Order
 from .validate import place_order
@@ -8,7 +9,7 @@ from .validate import place_order
 def history(request):
     user = request.user
 
-    orders = Order.objects.filter(user=user)
+    orders = Order.objects.filter(user=user).order_by('-pk')
 
     context = {
         'orders': orders,
@@ -28,3 +29,21 @@ def place(request):
     place_order(user)
 
     return redirect('orders:history')
+
+
+def order_received(request):
+    user = request.user
+
+    id = request.POST.get('id')
+
+    order = Order.objects.get(pk=id)
+
+    # Set order as delivered
+    order.delivered()
+    order.save()
+
+    data = {
+        "order_id": order.id
+    }
+
+    return JsonResponse(data)

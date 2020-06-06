@@ -32,6 +32,7 @@ class Color(models.Model):
 class Product(models.Model):
 
     model_code = models.CharField(max_length=32, unique=True)
+    name = models.CharField(max_length=32)
     price = models.FloatField()
 
     sex = models.CharField(max_length=2, choices=SEX_CHOICES, default=male)

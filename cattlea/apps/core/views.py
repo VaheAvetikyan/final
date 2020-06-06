@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.core.exceptions import ObjectDoesNotExist
 
 # Translate
 from django.utils.translation import gettext as _
@@ -46,8 +47,12 @@ def assort(request, param):
 
 def product(request, model_code):
 
-    product = Product.objects.get(model_code=model_code)
+    try:
+        product = Shoe.objects.get(model_code=model_code)
+    except ObjectDoesNotExist:
+        product = Accessorie.objects.get(model_code=model_code)
 
+    print(product)
     context = {
         "product": product,
     }

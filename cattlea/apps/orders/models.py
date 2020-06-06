@@ -69,3 +69,14 @@ class Order(models.Model):
         for item in self.items.all():
             total += item.get_price()
         return total
+
+    def delivery_status(self):
+        if self.received == True:
+            self.being_delivered = False
+
+    def delivered(self):
+        self.received = True
+
+    def save(self, *args, **kwargs):
+        self.delivery_status()
+        super().save(*args, **kwargs)

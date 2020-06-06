@@ -9,14 +9,14 @@ Cattlea
 {% block main %}
 <div class="container">
 
-    <h4>Latest</h4>
+    <h4>{% trans "Recent Arrivals" %}</h4>
     <div class="card-deck">
         {% for item in last_added %}
         <a href="{% url 'core:product' item.model_code %}">
             <div class="card bg-light mb-3" style="max-width: 18rem;">
                 <img class="card-img-top" src="{{ item.image.url }}" width="70" height="auto" alt="shoe">
                 <div class="card-body">
-                    {{ item.model_code }}
+                    {{ item.name }}
                 </div>
                 <div class="card-footer">
                     {% load humanize %}
@@ -27,14 +27,14 @@ Cattlea
         {% endfor %}
     </div>
 
-    <h4>Men</h4>
+    <h4>{% trans "Men's Shoes" %}</h4>
     <div class="card-deck">
         {% for item in men_shoes %}
         <a href="{% url 'core:product' item.model_code %}">
             <div class="card bg-light mb-3" style="max-width: 18rem;">
                 <img class="card-img-top" src="{{ item.image.url }}" width="70" height="auto" alt="shoe">
                 <div class="card-body">
-                    {{ item.model_code }}
+                    {{ item.name }}
                 </div>
                 <div class="card-footer">
                     {% load humanize %}
@@ -45,14 +45,14 @@ Cattlea
         {% endfor %}
     </div>
 
-    <h4>Women</h4>
+    <h4>{% trans "Women's Shoes" %}</h4>
     <div class="card-deck">
         {% for item in women_shoes %}
         <a href="{% url 'core:product' item.model_code %}">
             <div class="card bg-light mb-3" style="max-width: 18rem;">
                 <img class="card-img-top" src="{{ item.image.url }}" width="70" height="auto" alt="shoe">
                 <div class="card-body">
-                    {{ item.model_code }}
+                    {{ item.name }}
                 </div>
                 <div class="card-footer">
                     {% load humanize %}
@@ -63,14 +63,14 @@ Cattlea
         {% endfor %}
     </div>
 
-    <h4>Accessories</h4>
+    <h4>{% trans "Accessories" %}</h4>
     <div class="card-deck">
         {% for item in accessories %}
         <a href="{% url 'core:product' item.model_code %}">
             <div class="card bg-light mb-3" style="max-width: 18rem;">
                 <img class="card-img-top" src="{{ item.image.url }}" width="70" height="auto" alt="accessories">
                 <div class="card-body">
-                    {{ item.model_code }}
+                    {{ item.name }}
                 </div>
                 <div class="card-footer">
                     {% load humanize %}
