@@ -35,9 +35,15 @@ def add(user, product, size, color, quantity):
     if size == 'null':
         size = None
     else:
-        size = Size.objects.get(pk=size)
+        try:
+            size = Size.objects.get(pk=size)
+        except ValueError:
+            return False
 
-    color = Color.objects.get(pk=color)
+    try:
+        color = Color.objects.get(pk=color)
+    except ValueError:
+        return False
 
     """ 
     Try to get a CartItem object, 
@@ -67,3 +73,20 @@ def show_cart(user):
     items = Cart.objects.filter(user=user)
 
     return items
+
+
+def quantify(id, operator):
+
+    cartitem = CartItem.objects.get(pk=id)
+
+    if operator == "plus":
+        cartitem.quantity += 1
+    if operator == "minus":
+        cartitem.quantity -= 1
+
+    if cartitem.quantity == 0:
+        cartitem.delete()
+    else:
+        cartitem.save()
+
+    return(cartitem)

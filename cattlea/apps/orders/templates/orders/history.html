@@ -14,6 +14,7 @@
         {% for item in order.items.all %}
         <div class="row">
             <div class="col col-sm-4">
+                <h4>{{ item.item.name }}</h4>
                 <a href="{% url 'core:product' item.item.model_code %}">
                     <img src="{{ item.item.image.url }}" class="img-thumbnail" width="120" height="auto">
                 </a>

@@ -42,7 +42,8 @@ addEventListener('DOMContentLoaded', () => {
         var colors = document.querySelector('#colors');
         var color = colors.options[colors.selectedIndex].value;
 
-        var quantity = document.querySelector('#quantity').value;
+        quantities = document.querySelector('#quantity')
+        var quantity = quantities.value;
 
         request.open('POST', 'carts/add/');
 
@@ -52,6 +53,14 @@ addEventListener('DOMContentLoaded', () => {
             // Extract JSON data from request
             const response = JSON.parse(request.responseText);
 
+            if (response.status === "success") {
+                if (sizes != null) {
+                    sizes.value = "Choose Size";
+                }
+
+                colors.value = "Choose Color";
+                quantities.value = "Choose Quantity";
+            }
         }
 
         // Add data to send with request
@@ -69,6 +78,7 @@ addEventListener('DOMContentLoaded', () => {
         return false;
     }
 })
+
 
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.progress-button').forEach(function (button) {
@@ -105,6 +115,51 @@ document.addEventListener('DOMContentLoaded', () => {
             // Add data to send with request
             const data = new FormData();
             data.append('id', order_number);
+
+            // Set request header
+            request.setRequestHeader("X-CSRFToken", csrftoken);
+
+            // Send request
+            request.send(data);
+            return false;
+        }
+    })
+})
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.quant-plus-minus').forEach(function (button) {
+        button.onclick = () => {
+            // Initialize new request
+            const request = new XMLHttpRequest();
+
+            var id = button.dataset.id
+            var operator = button.dataset.operator
+
+            request.open('POST', 'quant/');
+
+            // Callback function for when request completes
+            request.onload = () => {
+
+                // Extract JSON data from request
+                const response = JSON.parse(request.responseText);
+                
+                if (response.status === "success"){
+                    if (response.quantity === 0){
+                        document.getElementById(id).remove();
+                    } else {
+                        document.querySelector('#quantity' + id).innerHTML = response.quantity;
+                        document.querySelector('#total_price' + id).innerHTML = response.total_price.toLocaleString(undefined, {minimumFractionDigits: 1});
+                    }
+                    
+                    document.querySelector('#total_all').innerHTML = response.total.toLocaleString(undefined, {minimumFractionDigits: 1});
+                }
+            }
+
+            // Add data to send with request
+            const data = new FormData();
+            data.append('id', id);
+            data.append('operator', operator);
 
             // Set request header
             request.setRequestHeader("X-CSRFToken", csrftoken);

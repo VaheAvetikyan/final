@@ -23,5 +23,6 @@ urlpatterns = [
     re_path(r'^auth/', include("cattlea.apps.authentication.urls")),
     re_path(r'^carts/', include("cattlea.apps.carts.urls")),
     re_path(r'^orders/', include("cattlea.apps.orders.urls")),
+    re_path(r'^i18n/', include('django.conf.urls.i18n')),
     re_path(r'^admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

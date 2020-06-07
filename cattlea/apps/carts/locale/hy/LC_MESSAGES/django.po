@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-06 21:18+0400\n"
+"POT-Creation-Date: 2020-06-07 21:03+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,39 +18,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\cattlea\apps\carts\templates\carts\cart.html:6
+#: cattlea/apps/carts/templates/carts/cart.html:6
 msgid "Shopping Cart"
 msgstr "Զամբյուղ"
 
-#: .\cattlea\apps\carts\templates\carts\cart.html:20
+#: cattlea/apps/carts/templates/carts/cart.html:20
 msgid "Size"
 msgstr "Չափսը"
 
-#: .\cattlea\apps\carts\templates\carts\cart.html:21
+#: cattlea/apps/carts/templates/carts/cart.html:21
 msgid "Color"
 msgstr "Գույնը"
 
-#: .\cattlea\apps\carts\templates\carts\cart.html:22
+#: cattlea/apps/carts/templates/carts/cart.html:22
 msgid "Sex"
 msgstr "Սեռը"
 
-#: .\cattlea\apps\carts\templates\carts\cart.html:25
+#: cattlea/apps/carts/templates/carts/cart.html:25
 msgid "Qty"
 msgstr "Քանակը"
 
-#: .\cattlea\apps\carts\templates\carts\cart.html:26
+#: cattlea/apps/carts/templates/carts/cart.html:32
 msgid "Price"
 msgstr "Գինը"
 
-#: .\cattlea\apps\carts\templates\carts\cart.html:29
-#: .\cattlea\apps\carts\templates\carts\cart.html:40
+#: cattlea/apps/carts/templates/carts/cart.html:35
+#: cattlea/apps/carts/templates/carts/cart.html:46
 msgid "Total"
 msgstr "Ընդհ"
 
-#: .\cattlea\apps\carts\templates\carts\cart.html:32
+#: cattlea/apps/carts/templates/carts/cart.html:38
 msgid "Added"
 msgstr "Ավելացված է"
 
-#: .\cattlea\apps\carts\templates\carts\cart.html:43
+#: cattlea/apps/carts/templates/carts/cart.html:49
 msgid "Place Order"
 msgstr "Հաստատել պատվերը"

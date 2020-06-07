@@ -3,21 +3,16 @@ from django.db import models
 # Translate
 from django.utils.translation import gettext as _
 
-male = "M"
-female = "F"
-SEX_CHOICES = [
-    (male, _("Male")),
-    (female, _("Female"))
-]
+SEX_CHOICES = (
+    ("male", 'Male'),
+    ("female", 'Female')
+)
 
-athletic = _("Athletic")
-boots = _("Boots")
-classic = _("Classic")
-STYLE_CHOICES = [
-    (athletic, "athletic"),
-    (boots, "boots"),
-    (classic, "classic")
-]
+STYLE_CHOICES = (
+    ("athletic", 'Athletic'),
+    ("boots", 'Boots'),
+    ("classic", 'Classic')
+)
 
 
 # Create your models here.
@@ -35,7 +30,7 @@ class Product(models.Model):
     name = models.CharField(max_length=32)
     price = models.FloatField()
 
-    sex = models.CharField(max_length=2, choices=SEX_CHOICES, default=male)
+    sex = models.CharField(max_length=12, choices=SEX_CHOICES, default='Male')
 
     image = models.ImageField(blank=True)
     colors = models.ManyToManyField(Color, related_name="colors")
@@ -61,7 +56,7 @@ class Size(models.Model):
 
 class Shoe(Product):
 
-    style = models.CharField(max_length=64, choices=STYLE_CHOICES, default=classic)
+    style = models.CharField(max_length=64, choices=STYLE_CHOICES, default='Classic')
 
     material_inner = models.CharField(max_length=64)
     material_outer = models.CharField(max_length=64)

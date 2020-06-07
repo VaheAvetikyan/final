@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 
+from cattlea.apps.emails.sender import email_received
 from .models import Order
 from .validate import place_order
 
@@ -41,6 +42,8 @@ def order_received(request):
     # Set order as delivered
     order.delivered()
     order.save()
+
+    email_received(user, order)
 
     data = {
         "order_id": order.id

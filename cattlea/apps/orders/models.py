@@ -1,5 +1,6 @@
 from django.db import models
 
+from cattlea.apps.emails.sender import email_delivery
 from cattlea.apps.authentication.models import User, Address
 from cattlea.apps.core.models import Product, Size, Color
 
@@ -79,4 +80,10 @@ class Order(models.Model):
 
     def save(self, *args, **kwargs):
         self.delivery_status()
+
+        if self.id:
+            old_order = Order.objects.get(pk=self.id)
+            if old_order.being_delivered == False and self.being_delivered == True:
+                email_delivery(self.user, self)
+
         super().save(*args, **kwargs)

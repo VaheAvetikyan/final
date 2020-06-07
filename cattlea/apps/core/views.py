@@ -12,10 +12,10 @@ def index(request):
 
     user = request.user
 
-    last_added = Product.objects.all()[:3]
+    last_added = Product.objects.all().order_by('-pk')[:3]
 
-    men_shoes = Shoe.objects.filter(sex='M').order_by('-pk')[:5]
-    women_shoes = Shoe.objects.filter(sex='F').order_by('-pk')[:5]
+    men_shoes = Shoe.objects.filter(sex='male').order_by('-pk')[:5]
+    women_shoes = Shoe.objects.filter(sex='female').order_by('-pk')[:5]
 
     accessories = Accessorie.objects.all().order_by('-pk')[:5]
 
@@ -52,7 +52,6 @@ def product(request, model_code):
     except ObjectDoesNotExist:
         product = Accessorie.objects.get(model_code=model_code)
 
-    print(product)
     context = {
         "product": product,
     }

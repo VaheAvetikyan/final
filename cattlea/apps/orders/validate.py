@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 
+from cattlea.apps.emails.sender import email_order
 from cattlea.apps.carts.models import Cart
 from .models import Order, OrderItem
 
@@ -24,3 +25,4 @@ def place_order(user):
         # Add the ordered item to the order
         order.items.add(order_item)
 
+    email_order(user, order)

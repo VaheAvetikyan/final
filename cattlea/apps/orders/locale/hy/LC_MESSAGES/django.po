@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-06 21:18+0400\n"
+"POT-Creation-Date: 2020-06-07 21:03+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,55 +18,55 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\cattlea\apps\orders\templates\orders\history.html:6
+#: cattlea/apps/orders/templates/orders/history.html:6
 msgid "Order History"
 msgstr "Գնումների պատմություն"
 
-#: .\cattlea\apps\orders\templates\orders\history.html:13
+#: cattlea/apps/orders/templates/orders/history.html:13
 msgid "Order Number"
 msgstr "Պատվերի համարը"
 
-#: .\cattlea\apps\orders\templates\orders\history.html:22
+#: cattlea/apps/orders/templates/orders/history.html:23
 msgid "Size"
 msgstr "Չափսը"
 
-#: .\cattlea\apps\orders\templates\orders\history.html:23
+#: cattlea/apps/orders/templates/orders/history.html:24
 msgid "Color"
 msgstr "Գույնը"
 
-#: .\cattlea\apps\orders\templates\orders\history.html:24
+#: cattlea/apps/orders/templates/orders/history.html:25
 msgid "Sex"
 msgstr "Սեռը"
 
-#: .\cattlea\apps\orders\templates\orders\history.html:27
+#: cattlea/apps/orders/templates/orders/history.html:28
 msgid "Qty"
 msgstr "Քանակը"
 
-#: .\cattlea\apps\orders\templates\orders\history.html:28
-#: .\cattlea\apps\orders\templates\orders\history.html:41
+#: cattlea/apps/orders/templates/orders/history.html:29
+#: cattlea/apps/orders/templates/orders/history.html:42
 msgid "Total"
 msgstr "Ընդհ"
 
-#: .\cattlea\apps\orders\templates\orders\history.html:35
+#: cattlea/apps/orders/templates/orders/history.html:36
 msgid "Shipping Address"
 msgstr "Առաքման հասցե"
 
-#: .\cattlea\apps\orders\templates\orders\history.html:38
+#: cattlea/apps/orders/templates/orders/history.html:39
 msgid "Ordered on"
 msgstr "Գնման օրը"
 
-#: .\cattlea\apps\orders\templates\orders\history.html:49
+#: cattlea/apps/orders/templates/orders/history.html:50
 msgid "Delivered"
 msgstr "Առաքված է"
 
-#: .\cattlea\apps\orders\templates\orders\history.html:54
+#: cattlea/apps/orders/templates/orders/history.html:55
 msgid "Out for delivery"
 msgstr "Ճանապարհին է"
 
-#: .\cattlea\apps\orders\templates\orders\history.html:59
+#: cattlea/apps/orders/templates/orders/history.html:60
 msgid "Ordered"
 msgstr "Պատվիրված է"
 
-#: .\cattlea\apps\orders\templates\orders\history.html:66
+#: cattlea/apps/orders/templates/orders/history.html:67
 msgid "Mark as Received"
 msgstr "Նշել որպես ստացած"

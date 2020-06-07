@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-06 21:18+0400\n"
+"POT-Creation-Date: 2020-06-07 21:03+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,137 +18,143 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\cattlea\apps\core\admin.py:62
+#: cattlea/apps/core/admin.py:62
 msgid "Admin Panel"
 msgstr "Կառավարման հարթակ"
 
-#: .\cattlea\apps\core\models.py:9
-msgid "Male"
-msgstr "Արական"
-
-#: .\cattlea\apps\core\models.py:10
-msgid "Female"
-msgstr "Իգական"
-
-#: .\cattlea\apps\core\models.py:13
-msgid "Athletic"
-msgstr "Աթլետիկ"
-
-#: .\cattlea\apps\core\models.py:14
-msgid "Boots"
-msgstr "Երկարաճիտք"
-
-#: .\cattlea\apps\core\models.py:15
-msgid "Classic"
-msgstr "Դասական"
-
-#: .\cattlea\apps\core\templates\core\base_core.html:21
+#: cattlea/apps/core/templates/core/base_core.html:21
 msgid "CATTLEA"
 msgstr "Կատտլեա"
 
-#: .\cattlea\apps\core\templates\core\base_core.html:24
+#: cattlea/apps/core/templates/core/base_core.html:24
 msgid "Shoes"
 msgstr "Կոշիկներ"
 
-#: .\cattlea\apps\core\templates\core\base_core.html:27
-#: .\cattlea\apps\core\templates\core\index.html:66
+#: cattlea/apps/core/templates/core/base_core.html:27
+#: cattlea/apps/core/templates/core/index.html:66
 msgid "Accessories"
 msgstr "Աքսեսուարներ"
 
-#: .\cattlea\apps\core\templates\core\base_core.html:34
+#: cattlea/apps/core/templates/core/base_core.html:34
 msgid "Shopping Cart"
 msgstr "Զամբյուղ"
 
-#: .\cattlea\apps\core\templates\core\base_core.html:38
+#: cattlea/apps/core/templates/core/base_core.html:38
 msgid "Orders"
 msgstr "Գնումներ"
 
-#: .\cattlea\apps\core\templates\core\base_core.html:46
+#: cattlea/apps/core/templates/core/base_core.html:46
 msgid "Logout"
 msgstr "Դուրս գալ"
 
-#: .\cattlea\apps\core\templates\core\base_core.html:51
+#: cattlea/apps/core/templates/core/base_core.html:51
 msgid "Register"
 msgstr "Գրանցվել"
 
-#: .\cattlea\apps\core\templates\core\base_core.html:55
+#: cattlea/apps/core/templates/core/base_core.html:55
 msgid "Login"
 msgstr "Մուտք գործել"
 
-#: .\cattlea\apps\core\templates\core\index.html:12
+#: cattlea/apps/core/templates/core/index.html:12
 msgid "Recent Arrivals"
 msgstr "Թարմ ժամանումներ "
 
-#: .\cattlea\apps\core\templates\core\index.html:30
+#: cattlea/apps/core/templates/core/index.html:30
 msgid "Men's Shoes"
 msgstr "Տղամարդու Կոշիկներ"
 
-#: .\cattlea\apps\core\templates\core\index.html:48
+#: cattlea/apps/core/templates/core/index.html:48
 msgid "Women's Shoes"
 msgstr "Կանացի կոշիկներ"
 
-#: .\cattlea\apps\core\templates\core\product.html:24
+#: cattlea/apps/core/templates/core/product.html:24
 msgid "Description"
 msgstr "Նկարագրություն"
 
-#: .\cattlea\apps\core\templates\core\product.html:26
+#: cattlea/apps/core/templates/core/product.html:26
 msgid "Specifications"
 msgstr "Բնութագիր"
 
-#: .\cattlea\apps\core\templates\core\product.html:31
+#: cattlea/apps/core/templates/core/product.html:31
+msgid "Sex"
+msgstr "Սեռ"
+
+#: cattlea/apps/core/templates/core/product.html:35
 msgid "Style"
 msgstr "Ոճ"
 
-#: .\cattlea\apps\core\templates\core\product.html:35
-#: .\cattlea\apps\core\templates\core\product.html:51
+#: cattlea/apps/core/templates/core/product.html:39
+#: cattlea/apps/core/templates/core/product.html:55
 msgid "Inner Material"
 msgstr "Ներքին նյութ"
 
-#: .\cattlea\apps\core\templates\core\product.html:39
+#: cattlea/apps/core/templates/core/product.html:43
 msgid "Outer Material"
 msgstr "Արտաքին նյութ"
 
-#: .\cattlea\apps\core\templates\core\product.html:43
+#: cattlea/apps/core/templates/core/product.html:47
 msgid "Outsole"
 msgstr "Տակացու"
 
-#: .\cattlea\apps\core\templates\core\product.html:47
+#: cattlea/apps/core/templates/core/product.html:51
 msgid "Season"
 msgstr "Սեզոն"
 
-#: .\cattlea\apps\core\templates\core\product.html:56
+#: cattlea/apps/core/templates/core/product.html:60
 msgid "Type"
 msgstr "Տեսակ"
 
-#: .\cattlea\apps\core\templates\core\product.html:60
+#: cattlea/apps/core/templates/core/product.html:64
 msgid "Material"
 msgstr "Նյութ"
 
-#: .\cattlea\apps\core\templates\core\product.html:73
+#: cattlea/apps/core/templates/core/product.html:73
 msgid "Size"
 msgstr "Չափս"
 
-#: .\cattlea\apps\core\templates\core\product.html:76
+#: cattlea/apps/core/templates/core/product.html:76
 msgid "Choose Size"
 msgstr "Ընտրել չափսը"
 
-#: .\cattlea\apps\core\templates\core\product.html:86
-#: .\cattlea\apps\core\templates\core\product.html:97
+#: cattlea/apps/core/templates/core/product.html:86
 msgid "Color"
 msgstr "Գույն"
 
-#: .\cattlea\apps\core\templates\core\product.html:89
+#: cattlea/apps/core/templates/core/product.html:89
 msgid "Choose Color"
 msgstr "Ընտրել գույնը"
 
-#: .\cattlea\apps\core\templates\core\product.html:100
+#: cattlea/apps/core/templates/core/product.html:97
+msgid "Quantity"
+msgstr "Քանակը"
+
+#: cattlea/apps/core/templates/core/product.html:100
 msgid "Choose Quantity"
 msgstr "Նշել քանակը"
 
-#: .\cattlea\apps\core\templates\core\product.html:111
+#: cattlea/apps/core/templates/core/product.html:115
+msgid "Price"
+msgstr "Giny"
+
+#: cattlea/apps/core/templates/core/product.html:123
 msgid "Add to Cart"
 msgstr "Ավելացնել զամբյուղում"
 
-#: .\cattlea\apps\core\templates\core\product.html:113
+#: cattlea/apps/core/templates/core/product.html:125
 msgid "Currently not available"
 msgstr "Առկա չէ"
+
+#~ msgid "Male"
+#~ msgstr "Արական"
+
+#~ msgid "Female"
+#~ msgstr "Իգական"
+
+#~ msgid "Athletic"
+#~ msgstr "Աթլետիկ"
+
+#~ msgid "Boots"
+#~ msgstr "Երկարաճիտք"
+
+#~ msgid "Classic"
+#~ msgstr "Դասական"

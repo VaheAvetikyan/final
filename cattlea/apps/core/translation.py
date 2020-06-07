@@ -9,7 +9,7 @@ class ProductTranslationOptions(TranslationOptions):
 
 
 class ShoeTranslationOptions(TranslationOptions):
-    fields = ('sex', 'material_inner', 'material_outer', 'outsole', 'season')
+    fields = ('material_inner', 'material_outer', 'outsole', 'season')
 
 
 class AccessorieTranslationOptions(TranslationOptions):

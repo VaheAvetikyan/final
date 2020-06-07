@@ -2,9 +2,9 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 
+from cattlea.apps.emails.sender import email_register
 from .froms import RegisterForm, LoginForm, AddressForm
 from .models import User
-
 
 # Create your views here.
 def register(request):
@@ -26,6 +26,9 @@ def register(request):
             user = authenticate(email=email, password=raw_password)
 
             login(request, user)
+            
+            email_register(user)
+
             return redirect("core:index")
 
         else:
