@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-07 21:03+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: cattlea/apps/orders/templates/orders/history.html:6
+msgid "Order History"
+msgstr "Գնումների պատմություն"
+
+#: cattlea/apps/orders/templates/orders/history.html:13
+msgid "Order Number"
+msgstr "Պատվերի համարը"
+
+#: cattlea/apps/orders/templates/orders/history.html:23
+msgid "Size"
+msgstr "Չափսը"
+
+#: cattlea/apps/orders/templates/orders/history.html:24
+msgid "Color"
+msgstr "Գույնը"
+
+#: cattlea/apps/orders/templates/orders/history.html:25
+msgid "Sex"
+msgstr "Սեռը"
+
+#: cattlea/apps/orders/templates/orders/history.html:28
+msgid "Qty"
+msgstr "Քանակը"
+
+#: cattlea/apps/orders/templates/orders/history.html:29
+#: cattlea/apps/orders/templates/orders/history.html:42
+msgid "Total"
+msgstr "Ընդհ"
+
+#: cattlea/apps/orders/templates/orders/history.html:36
+msgid "Shipping Address"
+msgstr "Առաքման հասցե"
+
+#: cattlea/apps/orders/templates/orders/history.html:39
+msgid "Ordered on"
+msgstr "Գնման օրը"
+
+#: cattlea/apps/orders/templates/orders/history.html:50
+msgid "Delivered"
+msgstr "Առաքված է"
+
+#: cattlea/apps/orders/templates/orders/history.html:55
+msgid "Out for delivery"
+msgstr "Ճանապարհին է"
+
+#: cattlea/apps/orders/templates/orders/history.html:60
+msgid "Ordered"
+msgstr "Պատվիրված է"
+
+#: cattlea/apps/orders/templates/orders/history.html:67
+msgid "Mark as Received"
+msgstr "Նշել որպես ստացած"

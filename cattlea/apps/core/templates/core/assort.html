@@ -1,0 +1,28 @@
+{% extends "core/base_core.html" %}
+
+{% load i18n %}
+
+{% block title %}
+Assortment
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="card-deck">
+        {% for item in products %}
+        <a href="{% url 'core:product' item.model_code %}">
+            <div class="card bg-light mb-3" style="max-width: 18rem;">
+                <img class="card-img-top" src="{{ item.image.url }}" width="70" height="auto" alt="shoe">
+                <div class="card-body">
+                    {{ item.name }}
+                </div>
+                <div class="card-footer">
+                    {% load humanize %}
+                    </h5>{{ item.price|intcomma }} &#1423;</h5>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

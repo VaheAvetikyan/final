@@ -1,0 +1,13 @@
+language: python
+python:
+- 3.8.2
+install:
+- pip install -r requirements.txt
+script:
+- python manage.py test cattlea.apps.authentication
+- python manage.py test cattlea.apps.core
+- python manage.py test cattlea.apps.carts
+deploy:
+  provider: heroku
+  api_key:
+    secure: MkoNVF8+R5yfYqrBzBPEbTX1E1JGT+CK/dWaQhjesmhAdGakysSOFz1g4j2Zl1UknzJVcSPwXkI3hLw/xHRgjcSwdim4ibOk1Iu/IeGgJmHqRY8Yqr7dmT/lT4IP3YaldZlUx2ZapcXaSb5y8GY1jcK9FIe96fm4w5lXUK89t4IytAKZhaWFr4/dQ3mVurNzgkhxZc9v6fyhpxR0IU63Mheqd3P96XCatDgbTx7py7GRIpU7rmHWMnKlLXfckzL0TsS9+xAN4VwtpOdoU8/ilc3iVBFMOO6EY0V4I/sZJjtJEqmf2iUqy8VzHaBJJWx7x/Nwt1ioIRoiZZRMbP7CiqI7DSLNPUVAzYkJWi1jxC1mFliYqEnNGocpX2eYCe9/0qCyEqrho3mF6XXXYPl6p8NR7nTKKePk9eJrTtBvz8fPRONLWaIhBvcv8q5mybhTkLzvpXKNTGfTrxUG7//O5V2Q+nTjESls1PiR9owGudvjOURSO56kYbJPpy4ffegs8DafOw71q/XQQmVerJOmm9O9jlrIU0M+OwRlNXwRBc9NHAxxXpn0ZmqWqY9RIJUe7FKFOz+qiuMg9rjjBSudXjOjKQ832Pdhua1mu8Bqcy+MBnqyAtrbYtwaqBb1cqEnQGB10c+jV5EY34vh7HWjU/XJVYhCke9gokyyzHZU58M=

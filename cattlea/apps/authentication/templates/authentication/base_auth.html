@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/auth.css' %}">
+{% endblock %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            {% block welcome %}{% endblock %}
+            <a class="navbar-brand" href="{% url 'core:index' %}"><img src="{% static 'images/icon_dark.png' %}" 
+                width="150" height="150" alt="Logo"><p>{% trans "Go back to homepage" %}</p></a>
+        </div>
+        <div class="col-md-9 register-right">
+            <article class="card-body mx-auto">
+                {% block main %}{% endblock %}
+            </article>
+        </div>
+    </div>
+</div>
+{% endblock %}

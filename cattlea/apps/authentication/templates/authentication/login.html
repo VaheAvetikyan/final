@@ -1,0 +1,34 @@
+{% extends "authentication/base_auth.html" %}
+
+{% load i18n %}
+
+{% block title %}
+    {% trans "Login" %}
+{% endblock %}
+
+{% block main %}
+<h4 class="card-title mt-3 text-center">{% trans "Login" %}</h4>
+<form method="POST">
+    <hr>
+    {% csrf_token %}
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+        </div>
+        {{ form.email }}
+    </div>
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        </div>
+        {{ form.password }}
+    </div>
+    <hr>
+    <button class="btn btn-primary btn-lg btn-block" type="submit">{% trans "Login" %}</button>
+    <br>
+    <p class="text-center"><a href="{% url 'authentication:register' %}">{% trans "Register" %}</a>
+        {% trans "if you don't have account" %}</p>
+    </p>
+</form>
+<hr>
+{% endblock %}

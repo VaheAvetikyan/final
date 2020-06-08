@@ -1,0 +1,130 @@
+{% extends "core/base_core.html" %}
+
+{% load i18n %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block title %}
+{{ product.model_code }}
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <h1>{{ product.name }}</h1>
+    <input type="hidden" id="product-id" value="{{ product.id }}" />
+    <div class="row">
+        {% if product.image %}
+        <div class="col">
+            <img src="{{ product.image.url }}" class="img-fluid" width="800" height="auto">
+        </div>
+        {% endif %}
+        <div class="col">
+            <h4>{% trans "Description" %}</h4>
+            <p>{{ product.description }}</p>
+            <h4>{% trans "Specifications" %}</h4>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th scope="row">{% trans "Sex" %}</th>
+                        <td>{{ product.get_sex_display }}</td>
+                    </tr>
+                    {% if product.style %}
+                    <tr>
+                        <th scope="row">{% trans "Style" %}</th>
+                        <td>{{ product.get_style_display }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% trans "Inner Material" %}</th>
+                        <td>{{ product.material_inner }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% trans "Outer Material" %}</th>
+                        <td>{{ product.material_outer }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% trans "Outsole" %}</th>
+                        <td>{{ product.outsole }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% trans "Season" %}</th>
+                        <td>{{ product.season }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% trans "Inner Material" %}</th>
+                        <td>{{ product.material_inner }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <th scope="row">{% trans "Type" %}</th>
+                        <td>{{ product.type }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% trans "Material" %}</th>
+                        <td>{{ product.material }}</td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+            <div class="input-group mb-3">
+                {% if product.sizes %}
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="sizes">{% trans "Size" %}</label>
+                </div>
+                <select class="custom-select" id="sizes" required>
+                    <option selected>{% trans "Choose Size" %}</option>
+                    {% for size in product.sizes.all %}
+                    <option value="{{ size.id }}">{{ size }}</option>
+                    {% endfor %}
+                </select>
+                {% else %}
+                {% endif %}
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="colors">{% trans "Color" %}</label>
+                </div>
+                <select class="custom-select" id="colors" required>
+                    <option selected>{% trans "Choose Color" %}</option>
+                    {% for color in product.colors.all %}
+                    <option value="{{ color.id }}">{{ color }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="quantity">{% trans "Quantity" %}</label>
+                </div>
+                <select class="custom-select" id="quantity" required>
+                    <option selected>{% trans "Choose Quantity" %}</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th scope="row">{% trans "Price" %}</th>
+                        <td>{% load humanize %}{{ product.price|intcomma }} &#1423;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col">
+            {% if product.is_available %}
+            <button class="btn btn-success" id="add-to-cart">{% trans "Add to Cart" %}</button>
+            {% else %}
+            <span class="text-danger">{% trans "Currently not available" %}</span>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

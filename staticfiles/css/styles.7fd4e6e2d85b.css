@@ -1,0 +1,9 @@
+.container > .card {
+    background-color: aquamarine;
+    padding: 10px;
+    margin: 20px;
+}
+
+a {
+    text-decoration: none !important;
+}

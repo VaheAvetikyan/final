@@ -1,0 +1,19 @@
+<h1>Hi {{ user.first_name }}!</h1>
+
+<p>Your order is on it's way!:</p>
+
+{% for item in order.items.all %}
+<p>{{ item.item.name }}</p>
+
+<p>Size: {{ item.size.size }}</p>
+<p>Color: {{ item.color }}</p>
+<p>Sex: {{ item.item.get_sex_display }}</p>
+
+<p>Qty: {{ item.quantity }}</p>
+<p>Total: {% load humanize %}{{ item.get_price|intcomma }}</p>
+{% endfor %}
+
+
+<p><small>Shipping Address: {{ order.shipping_address }}</small></p>
+<p><small>Ordered on: {{ order.ordered_date|date:'j F, Y' }}</small></p>
+<p>Total: {% load humanize %} {{ order.get_total|intcomma}}</p>

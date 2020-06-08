@@ -1,0 +1,54 @@
+{% extends "core/base_core.html" %}
+
+{% load i18n %}
+
+{% block title %}
+    {% trans "Shopping Cart" %}
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        {% for item in items %}
+            {% for object in item.items.all %}
+                <div id="{{ object.id }}" class="row">
+                    <div class="col-sm">
+                        <a href="{% url 'core:product' object.item.model_code %}">
+                            <img src="{{ object.item.image.url }}" class="img-thumbnail" width="120" height="auto">
+                        </a>
+                    </div>
+                    <div class="col-sm">
+                        <p>{% trans "Size" %}: <span>{{ object.size.size }}</span></p>
+                        <p>{% trans "Color" %}: <span class="badge" style="background-color: {{ object.color }};">{{ object.color }}</span></p>
+                        <p>{% trans "Sex" %}: {{ object.item.get_sex_display }}</p>
+                    </div>
+                    <div class="col-sm">
+                        <p>{% trans "Qty" %}: 
+                            <button class="btn quant-plus-minus" data-id="{{ object.id }}" data-operator="minus">
+                                <i class="fas fa-minus"></i></button>
+                            <span id="quantity{{ object.id }}">{{ object.quantity }}</span>
+                            <button class="btn quant-plus-minus" data-id="{{ object.id }}" data-operator="plus">
+                                <i class="fas fa-plus"></i></button>
+                        </p>
+                        <p>{% trans "Price" %}: {% load humanize %}{{ object.item.price|intcomma }} &#1423;</p>
+                    </div>
+                    <div class="col-sm">
+                        {% trans "Total" %}:<p>{% load humanize %}<strong id="total_price{{ object.id }}">{{ object.get_price|intcomma }}</strong> &#1423;</p>
+                    </div>
+                    <div class="col-sm">
+                        {% trans "Added" %}:<p>{{ object.date_added|date:'j F, Y' }}</p>
+                    </div>
+                </div>
+                <hr>
+            {% endfor %}
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-md-auto">
+                    {% trans "Total" %}: {% load humanize %}<strong id="total_all">{{ item.get_total|intcomma }}</strong> &#1423;
+                </div>
+                <div class="col col-lg-2">
+                    <a href="{% url 'orders:place' %}" class="btn btn-success" id="order-submit">{% trans "Place Order" %}</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
