@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-07 21:03+0400\n"
+"POT-Creation-Date: 2020-06-08 17:16+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,166 +18,153 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: cattlea/apps/authentication/froms.py:14
-#: cattlea/apps/authentication/froms.py:15
+#: froms.py:14 froms.py:15
 msgid "First name"
 msgstr "Անուն"
 
-#: cattlea/apps/authentication/froms.py:17
-#: cattlea/apps/authentication/froms.py:18
+#: froms.py:17 froms.py:18
 msgid "Last name"
 msgstr "Ազգանուն"
 
-#: cattlea/apps/authentication/froms.py:20
-#: cattlea/apps/authentication/froms.py:23
-#: cattlea/apps/authentication/froms.py:41
-#: cattlea/apps/authentication/froms.py:44
+#: froms.py:20 froms.py:23 froms.py:41 froms.py:44
 msgid "Email"
 msgstr "Էլ․փոստ"
 
-#: cattlea/apps/authentication/froms.py:25
-#: cattlea/apps/authentication/froms.py:45
-#: cattlea/apps/authentication/froms.py:46
+#: froms.py:25 froms.py:45 froms.py:46
 msgid "Password"
 msgstr "Գաղտնաբառ"
 
-#: cattlea/apps/authentication/froms.py:27
+#: froms.py:27
 msgid "Password must be at least 8 characters."
 msgstr "Գաղտնաբառը պետք է լինի առնվազն 8 նիշանոց"
 
-#: cattlea/apps/authentication/froms.py:28
+#: froms.py:28
 msgid "Password must contain at least 8 characters"
 msgstr "Գաղտնաբառը պետք է ունենա առնվազն 8 նիշ"
 
-#: cattlea/apps/authentication/froms.py:29
+#: froms.py:29
 msgid "Password confirmation"
 msgstr "Կրկին մուտքագրեք գաղտնաբառը"
 
-#: cattlea/apps/authentication/froms.py:31
+#: froms.py:31
 msgid "Confirm Password"
 msgstr "Կրկին մուտքագրեք գաղտնաբառը"
 
-#: cattlea/apps/authentication/froms.py:32
+#: froms.py:32
 msgid "Enter the same password as above, for verification."
 msgstr "Մուտքագրեք նույն գաղտնաբառը հաստատելու համար"
 
-#: cattlea/apps/authentication/froms.py:63
-#: cattlea/apps/authentication/froms.py:64
+#: froms.py:63 froms.py:64
 msgid "City"
 msgstr "Քաղաք"
 
-#: cattlea/apps/authentication/froms.py:68
-#: cattlea/apps/authentication/froms.py:69
+#: froms.py:68 froms.py:69
 msgid "Street"
 msgstr "Փողոց"
 
-#: cattlea/apps/authentication/froms.py:73
-#: cattlea/apps/authentication/froms.py:74
+#: froms.py:73 froms.py:74
 msgid "Apartment"
 msgstr "Տուն"
 
-#: cattlea/apps/authentication/froms.py:78
-#: cattlea/apps/authentication/froms.py:79
-#: cattlea/apps/authentication/templates/authentication/account.html:58
+#: froms.py:78 froms.py:79 templates/authentication/account.html:58
 msgid "Zip Code"
 msgstr "Փոստային կոդ"
 
-#: cattlea/apps/authentication/froms.py:85
+#: froms.py:85
 msgid "Deafault Address"
 msgstr "Լռելյայն առաքման հասցե"
 
-#: cattlea/apps/authentication/templates/authentication/account.html:6
+#: templates/authentication/account.html:6
 msgid "Account"
 msgstr "Հաշիվ"
 
-#: cattlea/apps/authentication/templates/authentication/account.html:17
+#: templates/authentication/account.html:17
 msgid "Your Orders History"
 msgstr "Ձեր գնումների պատմությունը"
 
-#: cattlea/apps/authentication/templates/authentication/account.html:26
+#: templates/authentication/account.html:26
 msgid "Your Shopping Cart"
 msgstr "Ձեր զամբյուղը"
 
-#: cattlea/apps/authentication/templates/authentication/account.html:36
+#: templates/authentication/account.html:36
 msgid "First Name"
 msgstr "Անուն"
 
-#: cattlea/apps/authentication/templates/authentication/account.html:40
+#: templates/authentication/account.html:40
 msgid "Last Name"
 msgstr "Ազգանուն"
 
-#: cattlea/apps/authentication/templates/authentication/account.html:44
+#: templates/authentication/account.html:44
 msgid "Email address"
 msgstr "Էլ․ հասցե"
 
-#: cattlea/apps/authentication/templates/authentication/account.html:48
+#: templates/authentication/account.html:48
 msgid "Date Joined"
 msgstr "Գրանցման ամսաթիվ"
 
-#: cattlea/apps/authentication/templates/authentication/account.html:53
-#: cattlea/apps/authentication/templates/authentication/address.html:6
-#: cattlea/apps/authentication/templates/authentication/address.html:11
+#: templates/authentication/account.html:53
+#: templates/authentication/address.html:6
+#: templates/authentication/address.html:11
 msgid "Address"
 msgstr "Հասցե"
 
-#: cattlea/apps/authentication/templates/authentication/account.html:68
+#: templates/authentication/account.html:68
 msgid "Change Address"
 msgstr "Փոխել հասցեն"
 
-#: cattlea/apps/authentication/templates/authentication/account.html:70
+#: templates/authentication/account.html:70
 msgid "Add Address"
 msgstr "Ավելացնել հասցե"
 
-#: cattlea/apps/authentication/templates/authentication/account.html:74
-#: cattlea/apps/authentication/templates/authentication/change-password.html:6
-#: cattlea/apps/authentication/templates/authentication/change-password.html:10
+#: templates/authentication/account.html:74
+#: templates/authentication/change-password.html:6
+#: templates/authentication/change-password.html:10
 msgid "Change Password"
 msgstr "Փոխել գաղտնաբառը"
 
-#: cattlea/apps/authentication/templates/authentication/address.html:41
+#: templates/authentication/address.html:41
 msgid "Default Shipping Address"
 msgstr "Լռելյայն առաքման հասցե"
 
-#: cattlea/apps/authentication/templates/authentication/address.html:46
+#: templates/authentication/address.html:46
 msgid "Save"
 msgstr "Պահպանել"
 
-#: cattlea/apps/authentication/templates/authentication/base_auth.html:18
+#: templates/authentication/base_auth.html:18
 msgid "Go back to homepage"
 msgstr "Հետ գնալ հիմնական էջ"
 
-#: cattlea/apps/authentication/templates/authentication/change-password.html:18
+#: templates/authentication/change-password.html:18
 msgid "Change"
 msgstr "Փոխել"
 
-#: cattlea/apps/authentication/templates/authentication/login.html:6
-#: cattlea/apps/authentication/templates/authentication/login.html:10
-#: cattlea/apps/authentication/templates/authentication/login.html:27
-#: cattlea/apps/authentication/templates/authentication/register.html:52
+#: templates/authentication/login.html:6 templates/authentication/login.html:10
+#: templates/authentication/login.html:27
+#: templates/authentication/register.html:52
 msgid "Login"
 msgstr "Մուտք"
 
-#: cattlea/apps/authentication/templates/authentication/login.html:29
+#: templates/authentication/login.html:29
 msgid "Register"
 msgstr "Գրանցվել"
 
-#: cattlea/apps/authentication/templates/authentication/login.html:30
+#: templates/authentication/login.html:30
 msgid "if you don't have account"
 msgstr "Եթե չունեք գործող հաշիվ"
 
-#: cattlea/apps/authentication/templates/authentication/register.html:6
-#: cattlea/apps/authentication/templates/authentication/register.html:14
+#: templates/authentication/register.html:6
+#: templates/authentication/register.html:14
 msgid "Registration"
 msgstr "Գրանցում"
 
-#: cattlea/apps/authentication/templates/authentication/register.html:10
+#: templates/authentication/register.html:10
 msgid "Welcome"
 msgstr "Բարի գալուստ"
 
-#: cattlea/apps/authentication/templates/authentication/register.html:49
+#: templates/authentication/register.html:49
 msgid "Create Account"
 msgstr "Ստեղծել հաշիվ"
 
-#: cattlea/apps/authentication/templates/authentication/register.html:51
+#: templates/authentication/register.html:51
 msgid "Have an account?"
 msgstr "Արդեն գրանցված ե՞ք"

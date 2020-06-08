@@ -1,17 +1,17 @@
 from django.db import models
 
 # Translate
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 SEX_CHOICES = (
-    ("male", 'Male'),
-    ("female", 'Female')
+    ("male", _('Male')),
+    ("female", _('Female'))
 )
 
 STYLE_CHOICES = (
-    ("athletic", 'Athletic'),
-    ("boots", 'Boots'),
-    ("classic", 'Classic')
+    ("athletic", _('Athletic')),
+    ("boots", _('Boots')),
+    ("classic", _('Classic'))
 )
 
 
