@@ -1,5 +1,5 @@
 asgiref==3.2.7
-Django==3.1.13
+Django==3.1.14
 django-modeltranslation==0.15
 Pillow==9.0.0
 pytz==2020.1
