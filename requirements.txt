@@ -4,4 +4,4 @@ django-modeltranslation==0.15
 Pillow==9.3.0
 pytz==2020.1
 six==1.14.0
-sqlparse==0.3.1
+sqlparse==0.4.4
